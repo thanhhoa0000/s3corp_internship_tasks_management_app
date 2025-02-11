@@ -1,0 +1,5 @@
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\SharedLibraries\BaseSharedLibrary\obj\Debug\net8.0\BaseSharedLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\SharedLibraries\BaseSharedLibrary\obj\Debug\net8.0\BaseSharedLibrary.AssemblyInfoInputs.cache
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\SharedLibraries\BaseSharedLibrary\obj\Debug\net8.0\BaseSharedLibrary.AssemblyInfo.cs
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\SharedLibraries\BaseSharedLibrary\obj\Debug\net8.0\BaseSharedLibrary.csproj.CoreCompileInputs.cache
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\SharedLibraries\BaseSharedLibrary\obj\Debug\net8.0\BaseSharedLibrary.sourcelink.json
