@@ -2,11 +2,16 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+	<AspVersioningVersion>8.1.0</AspVersioningVersion>
     <AspnetVersion>8.0.12</AspnetVersion>
     <MicrosoftExtensionsVersion>8.0.2</MicrosoftExtensionsVersion>
     <EfVersion>8.0.12</EfVersion>
   </PropertyGroup>
   <ItemGroup>
+	<!-- Version together with AspVersioning  -->
+	<PackageVersion Include="Asp.Versioning.Http" Version="$(AspVersioningVersion)" />
+	<PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="$(AspVersioningVersion)" />
+	  
     <!-- Version together with ASP.NET -->
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspnetVersion)" />

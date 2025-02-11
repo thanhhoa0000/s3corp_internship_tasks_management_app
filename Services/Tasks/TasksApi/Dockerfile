@@ -18,6 +18,7 @@ WORKDIR /src
 COPY ["Directory.Packages.props", "."]
 COPY ["Directory.Build.props", "."]
 COPY ["Services/Tasks/TasksApi/TasksApi.csproj", "Services/Tasks/TasksApi/"]
+COPY ["SharedLibraries/BaseSharedLibrary/BaseSharedLibrary.csproj", "SharedLibraries/BaseSharedLibrary/"]
 RUN dotnet restore "./Services/Tasks/TasksApi/TasksApi.csproj"
 COPY . .
 WORKDIR "/src/Services/Tasks/TasksApi"

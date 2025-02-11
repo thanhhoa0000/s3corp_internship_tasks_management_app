@@ -1,6 +1,6 @@
 services:
-  tasksapi:
-    container_name: "TasksApi"
+  tasks.api:
+    container_name: "TasksApi_1"
     build:
       args:
         LAUNCHING_FROM_VS: true
