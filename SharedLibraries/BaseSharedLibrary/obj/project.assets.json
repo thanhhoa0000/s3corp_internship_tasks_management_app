@@ -662,6 +662,14 @@
       }
     }
   },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ],
   "centralTransitiveDependencyGroups": {
     "net8.0": {
       "Microsoft.EntityFrameworkCore.Abstractions": {
