@@ -1,0 +1,34 @@
+services:
+  tasks.api:
+    image: ${DOCKER_REGISTRY-}tasks.api
+    build:
+      context: .
+      dockerfile: Services/Tasks/TasksApi/Dockerfile
+    ports:
+      - "5030:5030"
+      - "5031:5031"
+    depends_on:
+      - tasks.db
+    networks:
+      tasks-management-net:
+
+  tasks.db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SA_PASSWORD}
+      - MSSQL_PID=Developer
+    ports:
+      - 14331:1433
+    volumes:
+      - tasks_data:/var/opt/mssql
+    networks:
+      tasks-management-net:
+    restart: unless-stopped
+volumes:
+  users_data:
+  tasks_data:
+
+networks:
+  tasks-management-net:
+    driver: bridge
