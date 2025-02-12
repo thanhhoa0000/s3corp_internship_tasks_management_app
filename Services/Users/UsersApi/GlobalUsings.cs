@@ -1,11 +1,13 @@
 ﻿global using System.ComponentModel.DataAnnotations;
 global using System.Text.Json;
+global 
 
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Http.HttpResults;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.IdentityModel.Tokens;
 
 global using Carter;
 global using AutoMapper;
@@ -13,6 +15,7 @@ global using Asp.Versioning;
 global using Asp.Versioning.Builder;
 
 global using TaskManagementApp.Services.UsersApi.Models;
+global using TaskManagementApp.Services.UsersApi.Models.Dtos;
 global using TaskManagementApp.Services.UsersApi.Data;
 global using TaskManagementApp.Services.UsersApi.Repositories;
 global using TaskManagementApp.Services.UsersApi.Repositories.IRepositories;
