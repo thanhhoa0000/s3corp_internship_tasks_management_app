@@ -1,8 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
-using TaskManagementApp.Services.UsersApi.Models.Dtos;
-
-namespace TaskManagementApp.Services.UsersApi.Endpoints
+﻿namespace TaskManagementApp.Services.UsersApi.Endpoints
 {
     public class UserEndpoints : ICarterModule
     {
@@ -127,7 +123,8 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
                     return TypedResults.BadRequest("User already existed!");
                 }
 
-                AppUser user = mapper.Map<AppUser>(request.User);
+                using (TransactionScope)
+                    AppUser user = mapper.Map<AppUser>(request.User);
                 await repository.CreateAsync(user);
 
                 logger.LogInformation($"Assign role {request.Role.Name} to user {request.User.Id}");
