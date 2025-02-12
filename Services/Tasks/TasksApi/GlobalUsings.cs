@@ -19,3 +19,4 @@ global using TaskManagementApp.Services.TasksApi.Repositories.IRepositories;
 global using TaskManagementApp.SharedLibraries.BaseSharedLibraries.Repositories;
 global using TaskManagementApp.SharedLibraries.BaseSharedLibraries.Repositories.IRepositories;
 global using TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos;
+

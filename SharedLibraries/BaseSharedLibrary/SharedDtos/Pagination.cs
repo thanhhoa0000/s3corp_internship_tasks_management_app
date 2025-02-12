@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos
+﻿namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos
 {
     public class Pagination
     {
