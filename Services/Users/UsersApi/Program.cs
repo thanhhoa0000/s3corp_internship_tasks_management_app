@@ -1,9 +1,3 @@
-using System;
-using Asp.Versioning;
-using Carter;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

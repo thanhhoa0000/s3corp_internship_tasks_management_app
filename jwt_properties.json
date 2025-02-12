@@ -1,0 +1,8 @@
+{
+    "JwtProperties": {
+        "iss": "task-management-app-auth",
+        "aud": "task-management-app-client",
+        "key": "qcNiusMBydn6pOECnrISQnerACd0n0UL",
+        "exp": 30
+    }    
+}

@@ -1,0 +1,21 @@
+﻿using System.ComponentModel;
+
+namespace TaskManagementApp.Services.AuthenticationApi.Models.Dtos
+{
+    public class RegistrationRequest
+    {
+        [Required, MinLength(6)]
+        public required string UserName { get; set; }
+        [EmailAddress]
+        public required string Email { get; set; }
+        [Required, PasswordPropertyText]
+        public required string Password { get; set; }
+        [Phone, MaxLength(12)]
+        public string? PhoneNumber { get; set; }
+        [MinLength(2), MaxLength(30)]
+        public string? FirstName { get; set; }
+        [MinLength(2), MaxLength(50)]
+        public string? LastName { get; set; }
+        public Role Role { get; set; } = Role.Normal;
+    }
+}

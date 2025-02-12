@@ -32,11 +32,6 @@ namespace TaskManagementApp.Services.UsersApi.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(21)
-                        .HasColumnType("nvarchar(21)");
-
                     b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -54,9 +49,7 @@ namespace TaskManagementApp.Services.UsersApi.Data.Migrations
 
                     b.ToTable("AspNetRoles", (string)null);
 
-                    b.HasDiscriminator().HasValue("IdentityRole<Guid>");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -351,10 +344,9 @@ namespace TaskManagementApp.Services.UsersApi.Data.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasIndex("Name")
-                        .IsUnique()
-                        .HasFilter("[Name] IS NOT NULL");
+                        .IsUnique();
 
-                    b.HasDiscriminator().HasValue("AppRole");
+                    b.ToTable("AppRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -428,6 +420,15 @@ namespace TaskManagementApp.Services.UsersApi.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("TaskManagementApp.Services.UsersApi.Models.AppRole", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                        .WithOne()
+                        .HasForeignKey("TaskManagementApp.Services.UsersApi.Models.AppRole", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TaskManagementApp.Services.UsersApi.Models.AppUser", b =>

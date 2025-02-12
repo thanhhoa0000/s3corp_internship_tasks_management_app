@@ -48,3 +48,9 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\Microsoft.Extensions.Identity.Core.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\AuthenticationApi.deps.json
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\AuthenticationApi.runtimeconfig.json
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\AuthenticationApi.staticwebassets.endpoints.json
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\AuthenticationApi.exe
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\AuthenticationApi.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\bin\Debug\AuthenticationApi.pdb

@@ -11,6 +11,9 @@ services:
       - tasks.db
     networks:
       tasks-management-net:
+    secrets:
+      - aes_key
+      - aes_iv
 
   users.api:
     image: ${DOCKER_REGISTRY-}users.api
@@ -24,6 +27,25 @@ services:
       - users.db
     networks:
       tasks-management-net:
+    secrets:
+      - aes_key
+      - aes_iv
+
+  authen.api:
+    image: ${DOCKER_REGISTRY-}authen.api
+    build:
+      context: .
+      dockerfile: Services/Authentication/AuthenticationApi/Dockerfile
+    ports:
+      - "5010:5010"
+      - "5011:5011"
+    depends_on:
+      - users.db
+    networks:
+      tasks-management-net:
+    secrets:
+      - aes_key
+      - aes_iv
 
   tasks.db:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -52,7 +74,7 @@ services:
     networks:
       tasks-management-net:
     restart: unless-stopped
-  
+
 volumes:
   users_data:
   tasks_data:
@@ -60,3 +82,10 @@ volumes:
 networks:
   tasks-management-net:
     driver: bridge
+
+secrets:
+  aes_key:
+    external: true
+  aes_iv:
+    external: true
+
