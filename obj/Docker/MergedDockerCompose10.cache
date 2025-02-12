@@ -1,0 +1,158 @@
+name: dockercompose15224299027995550883
+services:
+  authenticationapi:
+    build:
+      context: D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency
+      dockerfile: Services/Authentication/AuthenticationApi/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: authenticationapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\hoa.nguyen\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\hoa.nguyen\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\hoa.nguyen\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\hoa.nguyen\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  tasks.api:
+    build:
+      context: D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency
+      dockerfile: Services/Tasks/TasksApi/Dockerfile
+    depends_on:
+      tasks.db:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_Kestrel__Certificates__Default__Password: verylOngandWeAkpAasw0rd
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /home/app/.aspnet/https/Tasks.API.pfx
+      ASPNETCORE_URLS: https://+:5031;http://+:5030
+    image: tasks.api
+    networks:
+      tasks-management-net: null
+    ports:
+      - mode: ingress
+        target: 5030
+        published: "5030"
+        protocol: tcp
+      - mode: ingress
+        target: 5031
+        published: "5031"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\certs\.aspnet\https\Tasks.API.pfx
+        target: /home/app/.aspnet/https/Tasks.API.pfx
+        read_only: true
+        bind:
+          create_host_path: true
+  tasks.db:
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      SA_PASSWORD: MyPa55w0rd
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      tasks-management-net: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "14331"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: tasks_data
+        target: /var/opt/mssql
+        volume: {}
+  users.api:
+    build:
+      context: D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency
+      dockerfile: Services/Users/UsersApi/Dockerfile
+    depends_on:
+      users.db:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_Kestrel__Certificates__Default__Password: verylOngandWeAkpAasw0rd
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /home/app/.aspnet/https/Users.API.pfx
+      ASPNETCORE_URLS: https://+:5281;http://+:5280
+    image: users.api
+    networks:
+      tasks-management-net: null
+    ports:
+      - mode: ingress
+        target: 5280
+        published: "5280"
+        protocol: tcp
+      - mode: ingress
+        target: 5281
+        published: "5281"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\certs\.aspnet\https\Users.API.pfx
+        target: /home/app/.aspnet/https/Users.API.pfx
+        read_only: true
+        bind:
+          create_host_path: true
+  users.db:
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      SA_PASSWORD: MyPa55w0rd
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      tasks-management-net: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "14332"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: users_data
+        target: /var/opt/mssql
+        volume: {}
+networks:
+  default:
+    name: dockercompose15224299027995550883_default
+  tasks-management-net:
+    name: dockercompose15224299027995550883_tasks-management-net
+    driver: bridge
+volumes:
+  tasks_data:
+    name: dockercompose15224299027995550883_tasks_data
+  users_data:
+    name: dockercompose15224299027995550883_users_data

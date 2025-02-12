@@ -13,6 +13,8 @@
 
             builder.Entity<AppUser>().ToTable("AppUsers");
 
+            builder.Entity<AppRole>().ToTable("AppRoles");
+
             builder.Entity<AdminUser>()
                 .HasOne(a => a.AppUser)
                 .WithOne(u => u.AdminUser)
@@ -30,7 +32,6 @@
             builder.Entity<AppRole>()
                 .HasIndex(r => r.Name)
                 .IsUnique();
-
         }
     }
 }
