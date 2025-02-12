@@ -14,8 +14,11 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
             var group = app.MapGroup("/api/v{version:apiVersion}/tasks")
                 .WithApiVersionSet(apiVersionSet);
 
-             group.MapGet("/", GetTasks);
-             group.MapGet("/{taskId:guid}", GetTask);
+            group.MapGet("/", GetTasks);
+            group.MapGet("/{taskId:guid}", GetTask);
+            group.MapPost("/", CreateTask);
+            group.MapPut("/", UpdateTask);
+            group.MapDelete("/{taskId:guid}", DeleteTask);
         }
 
         public async Task<Results<Ok<IEnumerable<TaskItemDto>>, BadRequest<string>>>
@@ -102,7 +105,7 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 {
                     logger.LogError("\n---\nInput task is null!\n---\n");
 
-                    return TypedResults.BadRequest("No task input was found");
+                    return TypedResults.BadRequest("No input task was found");
                 }
 
                 logger.LogInformation($"Creating task {taskDto.Id}");
@@ -144,7 +147,7 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 {
                     logger.LogError("\n---\nInput task is null!\n---\n");
 
-                    return TypedResults.BadRequest("No task input was found");
+                    return TypedResults.BadRequest("No input task was found");
                 }
 
                 logger.LogInformation($"Updating task {taskDto.Id}");
@@ -183,7 +186,7 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 {
                     logger.LogError("\n---\nInput task ID is null!\n---\n");
 
-                    return TypedResults.BadRequest("No task input ID was found");
+                    return TypedResults.BadRequest("No input task ID was found");
                 }
 
                 logger.LogInformation($"Deleting task {taskId}");

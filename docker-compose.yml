@@ -12,6 +12,19 @@ services:
     networks:
       tasks-management-net:
 
+  users.api:
+    image: ${DOCKER_REGISTRY-}users.api
+    build:
+      context: .
+      dockerfile: Services/Users/UsersApi/Dockerfile
+    ports:
+      - "5280:5280"
+      - "5281:5281"
+    depends_on:
+      - users.db
+    networks:
+      tasks-management-net:
+
   tasks.db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
@@ -25,6 +38,21 @@ services:
     networks:
       tasks-management-net:
     restart: unless-stopped
+
+  users.db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SA_PASSWORD}
+      - MSSQL_PID=Developer
+    ports:
+      - 14332:1433
+    volumes:
+      - users_data:/var/opt/mssql
+    networks:
+      tasks-management-net:
+    restart: unless-stopped
+  
 volumes:
   users_data:
   tasks_data:
