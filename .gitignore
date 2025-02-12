@@ -1,8 +1,4 @@
 .vs/*
-<<<<<<< HEAD
 obj/*
 Services/Tasks/TasksApi/obj/*
- SharedLibraries/BaseSharedLibrary/obj/*
-=======
-obj/*
->>>>>>> 22f4681b3aded86be14ab24a7bd7f49e99ed4405
+SharedLibraries/BaseSharedLibrary/obj/*
