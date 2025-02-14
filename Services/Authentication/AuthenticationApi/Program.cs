@@ -1,16 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
 
-string key = File.ReadAllText("/run/secrets/aes_key").Trim();
-string iv = File.ReadAllText("/run/secrets/aes_iv").Trim();
-var secretHandler = new SecretHandler(key, iv);
-
-string jwtPath = Path.Combine(Directory.GetCurrentDirectory(), "jwt_properties.json");
-var jwtProperties = File.ReadAllText(jwtPath);
-
-File.WriteAllText(
-    Path.Combine(Directory.GetCurrentDirectory(), "jwt_properties.enc"), 
-    secretHandler.Encrypt(jwtProperties));
-
 // Add services to the container.
 builder.Services.AddApiVersioning(options =>
 {
@@ -41,7 +30,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole<Guid>>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddTransient<ITokenProvider, TokenProvider>();
-builder.Services.AddSingleton<SecretHandler>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

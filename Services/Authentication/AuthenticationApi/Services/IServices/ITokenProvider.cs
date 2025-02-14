@@ -2,6 +2,6 @@
 {
     public interface ITokenProvider
     {
-        string CreateToken(AppUser user, IEnumerable<Role> roles);
+        // string CreateToken(AppUser user, IEnumerable<Role> roles);
     }
 }

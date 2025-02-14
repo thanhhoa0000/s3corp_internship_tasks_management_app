@@ -1,6 +1,5 @@
 ﻿global using System.ComponentModel.DataAnnotations;
 global using System.Text.Json;
-global 
 
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Http.HttpResults;

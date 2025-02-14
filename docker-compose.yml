@@ -1,5 +1,5 @@
 services:
-  tasks.api:
+  tasks-api:
     image: ${DOCKER_REGISTRY-}tasks.api
     build:
       context: .
@@ -8,14 +8,11 @@ services:
       - "5030:5030"
       - "5031:5031"
     depends_on:
-      - tasks.db
+      - tasks-db
     networks:
       tasks-management-net:
-    secrets:
-      - aes_key
-      - aes_iv
 
-  users.api:
+  users-api:
     image: ${DOCKER_REGISTRY-}users.api
     build:
       context: .
@@ -24,14 +21,11 @@ services:
       - "5280:5280"
       - "5281:5281"
     depends_on:
-      - users.db
+      - users-db
     networks:
       tasks-management-net:
-    secrets:
-      - aes_key
-      - aes_iv
 
-  authen.api:
+  authen-api:
     image: ${DOCKER_REGISTRY-}authen.api
     build:
       context: .
@@ -40,14 +34,11 @@ services:
       - "5010:5010"
       - "5011:5011"
     depends_on:
-      - users.db
+      - users-db
     networks:
       tasks-management-net:
-    secrets:
-      - aes_key
-      - aes_iv
 
-  tasks.db:
+  tasks-db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
@@ -61,7 +52,7 @@ services:
       tasks-management-net:
     restart: unless-stopped
 
-  users.db:
+  users-db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
@@ -83,9 +74,4 @@ networks:
   tasks-management-net:
     driver: bridge
 
-secrets:
-  aes_key:
-    external: true
-  aes_iv:
-    external: true
 

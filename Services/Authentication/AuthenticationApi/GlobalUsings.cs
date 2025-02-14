@@ -1,6 +1,8 @@
 ﻿global using System.ComponentModel.DataAnnotations;
 global using System.Text.Json;
 global using System.Text.Json.Serialization;
+global using System.Security.Cryptography.X509Certificates;
+global using System.Diagnostics;
 
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Http.HttpResults;
@@ -20,4 +22,3 @@ global using TaskManagementApp.Services.AuthenticationApi.Services.IServices;
 
 global using TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos;
 global using TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedEnums;
-global using TaskManagementApp.SharedLibraries.BaseSharedLibraries.Helper ;

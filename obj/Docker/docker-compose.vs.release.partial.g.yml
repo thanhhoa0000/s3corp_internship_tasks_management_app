@@ -1,5 +1,5 @@
 services:
-  authen.api:
+  authen-api:
     build:
       args:
         LAUNCHING_FROM_VS: true
@@ -24,7 +24,7 @@ services:
       com.microsoft.visualstudio.debuggee.killprogram: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet"
       com.microsoft.visual-studio.project-name: "AuthenticationApi"
     tty: true
-  tasks.api:
+  tasks-api:
     build:
       args:
         LAUNCHING_FROM_VS: true
@@ -50,7 +50,7 @@ services:
       com.microsoft.visual-studio.project-name: "TasksApi"
     tty: true
 
-  users.api:
+  users-api:
     build:
       args:
         LAUNCHING_FROM_VS: true

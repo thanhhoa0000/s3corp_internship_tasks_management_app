@@ -1,4 +1,6 @@
-﻿namespace TaskManagementApp.Services.UsersApi.Endpoints
+﻿using System.Transactions;
+
+namespace TaskManagementApp.Services.UsersApi.Endpoints
 {
     public class UserEndpoints : ICarterModule
     {
@@ -123,12 +125,18 @@
                     return TypedResults.BadRequest("User already existed!");
                 }
 
-                using (TransactionScope)
-                    AppUser user = mapper.Map<AppUser>(request.User);
-                await repository.CreateAsync(user);
+                AppUser user = mapper.Map<AppUser>(request.User);
 
-                logger.LogInformation($"Assign role {request.Role.Name} to user {request.User.Id}");
-                await repository.AssignRoleAsync(user.Id, request.Role.Id);
+                using (TransactionScope transactionScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await repository.CreateAsync(user);
+
+                    logger.LogInformation($"Assign role {request.Role.Name} to user {request.User.Id}");
+                    await repository.AssignRoleAsync(user.Id, request.Role.Id);
+
+                    transactionScope.Complete();
+                }
+                
 
                 var version = httpContext.GetRequestedApiVersion()?.ToString() ?? "1";
 

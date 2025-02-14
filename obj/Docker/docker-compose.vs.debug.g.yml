@@ -1,5 +1,5 @@
 services:
-  authen.api:
+  authen-api:
     image: authen.api:dev
     build:
       args:
@@ -33,7 +33,7 @@ services:
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet"
     tty: true
-  tasks.api:
+  tasks-api:
     image: tasks.api:dev
     build:
       args:
@@ -68,7 +68,7 @@ services:
       com.microsoft.visualstudio.debuggee.killprogram: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet"
     tty: true
 
-  users.api:
+  users-api:
     image: users.api:dev
     build:
       args:
