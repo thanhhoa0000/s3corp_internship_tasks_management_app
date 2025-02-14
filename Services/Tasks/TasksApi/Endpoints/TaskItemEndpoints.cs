@@ -12,7 +12,8 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 .Build();
 
             var group = app.MapGroup("/api/v{version:apiVersion}/tasks")
-                .WithApiVersionSet(apiVersionSet);
+                .WithApiVersionSet(apiVersionSet)
+                .RequireAuthorization("NormalUserOnly");
 
             group.MapGet("/", GetTasks);
             group.MapGet("/{taskId:guid}", GetTask);

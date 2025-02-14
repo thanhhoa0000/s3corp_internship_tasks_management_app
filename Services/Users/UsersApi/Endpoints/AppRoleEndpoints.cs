@@ -13,10 +13,11 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
                 .Build();
 
             var group = app.MapGroup("/api/v{version:apiVersion}/roles")
-                .WithApiVersionSet(apiVersionSet);
+                .WithApiVersionSet(apiVersionSet)
+                .RequireAuthorization("AdminOnly");
 
             group.MapGet("/", GetRoles);
-            group.MapGet("/{roleName}", GetRole);
+            group.MapGet("/{roleId:guid}", GetRole);
             group.MapPost("/", CreateRole);
             group.MapPut("/", UpdateRole);
             group.MapDelete("/{roleId:guid}", DeleteRole);
@@ -60,7 +61,7 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
         public async Task<Results<Ok<AppRole>, NotFound<string>, BadRequest<string>>>
             GetRole(
                 [FromServices] IAppRoleRepository repository,
-                String roleName,
+                Guid roleId,
                 IMapper mapper,
                 ILoggerFactory loggerFactory)
         {
@@ -70,13 +71,13 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
             {
                 logger.LogInformation("Getting the role...");
 
-                var role = await repository.GetAsync(r => r.Name == roleName);
+                var role = await repository.GetAsync(r => r.Id == roleId);
 
                 if (role is null)
                 {
-                    logger.LogError($"\n---\nRole {roleName} not found!\n---\n");
+                    logger.LogError($"\n---\nRole {roleId} not found!\n---\n");
 
-                    return TypedResults.NotFound($"Cannot find the role \"{roleName}\"");
+                    return TypedResults.NotFound($"Cannot find the role \"{roleId}\"");
                 }
 
                 return TypedResults.Ok(role);
@@ -190,29 +191,22 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
         public async Task<Results<NoContent, NotFound<string>, BadRequest<string>>>
             DeleteRole(
                 [FromServices] IAppRoleRepository repository,
-                string roleName,
+                Guid roleId,
                 ILoggerFactory loggerFactory)
         {
             ILogger logger = loggerFactory.CreateLogger(nameof(AppRoleEndpoints));
 
             try
             {
-                if (roleName.IsNullOrEmpty())
-                {
-                    logger.LogError("\n---\nInput role name is null!\n---\n");
+                logger.LogInformation($"Deleting role {roleId}");
 
-                    return TypedResults.BadRequest("No input role name was found");
-                }
-
-                logger.LogInformation($"Deleting role {roleName}");
-
-                var role = await repository.GetAsync(r => r.Name == roleName);
+                var role = await repository.GetAsync(r => r.Id == roleId);
 
                 if (role is null)
                 {
-                    logger.LogError($"\n---\nRole {roleName} not found!\n---\n");
+                    logger.LogError($"\n---\nRole {roleId} not found!\n---\n");
 
-                    return TypedResults.NotFound($"Cannot find the role \"{roleName}\"");
+                    return TypedResults.NotFound($"Cannot find the role \"{roleId}\"");
                 }
 
                 await repository.RemoveAsync(role);

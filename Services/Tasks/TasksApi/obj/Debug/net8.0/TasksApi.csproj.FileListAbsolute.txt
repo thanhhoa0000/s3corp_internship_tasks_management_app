@@ -273,3 +273,4 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Tasks\TasksApi\bin\Debug\net8.0\Asp.Versioning.Mvc.ApiExplorer.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Tasks\TasksApi\bin\Debug\net8.0\BaseSharedLibrary.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Tasks\TasksApi\bin\Debug\net8.0\BaseSharedLibrary.pdb
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Tasks\TasksApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

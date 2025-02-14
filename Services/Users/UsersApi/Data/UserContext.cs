@@ -1,6 +1,6 @@
 ﻿namespace TaskManagementApp.Services.UsersApi.Data
 {
-    public class UserContext(DbContextOptions<UserContext> options) : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>(options)
+    public class UserContext(DbContextOptions<UserContext> options) : IdentityDbContext<AppUser, AppRole, Guid>(options)
     {
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<NormalUser> NormalUsers { get; set; }
@@ -32,6 +32,11 @@
             builder.Entity<AppRole>()
                 .HasIndex(r => r.Name)
                 .IsUnique();
+
+            builder.Entity<IdentityUserRole<Guid>>()
+                .HasKey(ur => new { ur.UserId, ur.RoleId });
+            builder.Entity<IdentityUserRole<Guid>>()
+                .ToTable("AspNetUserRoles");
         }
     }
 }

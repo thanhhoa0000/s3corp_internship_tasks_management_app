@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace TaskManagementApp.Services.UsersApi.Endpoints
+﻿namespace TaskManagementApp.Services.UsersApi.Endpoints
 {
     public class UserEndpoints : ICarterModule
     {
@@ -12,7 +10,8 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
                 .Build();
 
             var group = app.MapGroup("/api/v{version:apiVersion}/users")
-                .WithApiVersionSet(apiVersionSet);
+                .WithApiVersionSet(apiVersionSet)
+                .RequireAuthorization("AdminOnly");
 
             group.MapGet("/", GetUsers);
             group.MapGet("/{userId:guid}", GetUser);
@@ -127,15 +126,15 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
 
                 AppUser user = mapper.Map<AppUser>(request.User);
 
-                using (TransactionScope transactionScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await repository.CreateAsync(user);
+                var passwordHasher = new PasswordHasher<AppUser>();
+                user.PasswordHash = passwordHasher.HashPassword(user, request.DefaultPassword);
+                user.SecurityStamp = Guid.NewGuid().ToString();
+                user.ConcurrencyStamp = Guid.NewGuid().ToString();
+                
+                await repository.CreateAsync(user);
 
-                    logger.LogInformation($"Assign role {request.Role.Name} to user {request.User.Id}");
-                    await repository.AssignRoleAsync(user.Id, request.Role.Id);
-
-                    transactionScope.Complete();
-                }
+                logger.LogInformation($"Assign role {request.Role.Name} to user {request.User.Id}");
+                await repository.AssignRoleAsync(user.Id, request.Role.Id);
                 
 
                 var version = httpContext.GetRequestedApiVersion()?.ToString() ?? "1";
