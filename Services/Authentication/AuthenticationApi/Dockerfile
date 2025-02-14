@@ -7,7 +7,7 @@ COPY ./certs/.aspnet/https/Authen.API.pfx /home/app/.aspnet/https/Authen.API.pfx
 RUN chown -R app:app /home/app/.aspnet/https
 USER app
 WORKDIR /app
-WORKDIR /app
+COPY ["jwt_properties.json", "."]
 EXPOSE 5010
 EXPOSE 5011
 

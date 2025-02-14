@@ -1,28 +1,28 @@
 services:
-  tasks.api:
+  tasks-api:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "https://+:5031;http://+:5030"
       ASPNETCORE_Kestrel__Certificates__Default__Password: ${HTTPS_DEV_CERTS_PASSWORD}
-      ASPNETCORE_Kestrel__Certificates__Default__Path: /home/app/.aspnet/https/Tasks.API.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Path: "/home/app/.aspnet/https/Tasks.API.pfx"
     volumes:
       - ./certs/.aspnet/https/Tasks.API.pfx:/home/app/.aspnet/https/Tasks.API.pfx:ro
 
-  users.api:
+  users-api:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "https://+:5281;http://+:5280"
       ASPNETCORE_Kestrel__Certificates__Default__Password: ${HTTPS_DEV_CERTS_PASSWORD}
-      ASPNETCORE_Kestrel__Certificates__Default__Path: /home/app/.aspnet/https/Users.API.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Path: "/home/app/.aspnet/https/Users.API.pfx"
     volumes:
       - ./certs/.aspnet/https/Users.API.pfx:/home/app/.aspnet/https/Users.API.pfx:ro
   
-  authen.api:
+  authen-api:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "https://+:5011;http://+:5010"
       ASPNETCORE_Kestrel__Certificates__Default__Password: ${HTTPS_DEV_CERTS_PASSWORD}
-      ASPNETCORE_Kestrel__Certificates__Default__Path: /home/app/.aspnet/https/Authen.API.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Path: "/home/app/.aspnet/https/Authen.API.pfx"
     volumes:
       - ./certs/.aspnet/https/Authen.API.pfx:/home/app/.aspnet/https/Authen.API.pfx:ro
   
