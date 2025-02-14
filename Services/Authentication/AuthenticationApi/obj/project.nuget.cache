@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HQ5B4ySK8vU=",
+  "dgSpecHash": "XMr1hixGnWY=",
   "success": true,
   "projectFilePath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj",
   "expectedPackageFiles": [
@@ -119,7 +119,7 @@
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.net.stringtools\\17.8.3\\microsoft.net.stringtools.17.8.3.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.openapi\\1.6.23\\microsoft.openapi.1.6.23.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\8.0.5\\microsoft.visualstudio.web.codegeneration.8.0.5.nupkg.sha512",

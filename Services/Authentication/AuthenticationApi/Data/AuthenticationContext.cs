@@ -1,7 +1,7 @@
 ﻿namespace TaskManagementApp.Services.AuthenticationApi.Data
 {
     public class AuthenticationContext(DbContextOptions<AuthenticationContext> options)
-        : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>(options)
+        : IdentityDbContext<AppUser, AppRole, Guid>(options)
     {
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<NormalUser> NormalUsers { get; set; }

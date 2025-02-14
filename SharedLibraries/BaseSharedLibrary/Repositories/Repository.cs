@@ -4,7 +4,7 @@
         where T : class
         where TContext : DbContext
     {
-        private readonly TContext _context;
+        protected readonly TContext _context;
         internal DbSet<T> _dbSet;
         private bool _disposed = false;
 

@@ -15,7 +15,9 @@
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.12" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="$(AspnetVersion)" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(AspnetVersion)" />
+    <PackageVersion Include="Microsoft.OpenApi" Version="1.6.23" />
     <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.8.1" />
     <!-- Version togerther with EF Core -->
@@ -35,5 +37,6 @@
     <PackageVersion Include="AutoMapper" Version="13.0.1" />
     <PackageVersion Include="Carter" Version="8.2.1" />
     <PackageVersion Include="IdentityModel" Version="7.0.0" />
+    <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.8.1" />
   </ItemGroup>
 </Project>
