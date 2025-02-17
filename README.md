@@ -1,5 +1,4 @@
-# [S3Corp Internship] Transaction and Concurrency
-# Tasks Management System
+# [S3Corp Internship] Tasks Management System
 
 A simple task management system implemented with a microservices architecture, built using MinimalAPI (.NET 8) and JWT role-based access authorization.
 
@@ -33,8 +32,8 @@ To run the app, you'll need Docker and Docker Compose installed.
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/thanhhoa0000/s3corp_internship_transaction_and_concurrency
-    cd s3corp_internship_transaction_and_concurrency
+    git clone https://github.com/thanhhoa0000/s3corp_internship_tasks_management_app
+    cd s3corp_internship_tasks_management_app
     ```
 
 2. Build and run the containers:
