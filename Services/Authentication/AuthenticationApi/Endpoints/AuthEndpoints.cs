@@ -23,10 +23,8 @@
                 [FromServices] ITokenProvider tokenProvider,
                 UserManager<AppUser> userManager,
                 IMapper mapper,
-                [FromServices] ILoggerFactory loggerFactory)
+                [FromServices] ILogger<AuthEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AuthEndpoints));
-
             try
             {
                 logger.LogInformation("Signing the user in...");
@@ -68,12 +66,10 @@
             Register(
                 [FromBody] RegistrationRequest request,
                 [FromServices] IAuthRepository repository,
-                [FromServices] ILoggerFactory loggerFactory,
+                [FromServices] ILogger<AuthEndpoints> logger,
                 IMapper mapper,
                 UserManager<AppUser> userManager)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AuthEndpoints));
-
             try
             {
                 logger.LogInformation("Registering the user...");

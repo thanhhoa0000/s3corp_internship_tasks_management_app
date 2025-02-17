@@ -10,6 +10,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Include="..\..\..\nlog.config" Link="nlog.config" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Asp.Versioning.Http" />
 		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
@@ -31,6 +35,8 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 		<PackageReference Include="Carter" />
 		<PackageReference Include="AutoMapper" />
+		<PackageReference Include="NLog.Web.AspNetCore" />
+		<PackageReference Include="NLog" />
 	</ItemGroup>
 
 	<ItemGroup>

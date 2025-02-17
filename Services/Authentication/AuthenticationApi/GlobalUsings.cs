@@ -15,6 +15,10 @@ global using Microsoft.Extensions.Options;
 
 global using Carter;
 global using AutoMapper;
+
+global using NLog;
+global using NLog.Web;
+
 global using Asp.Versioning;
 global using Asp.Versioning.Builder;
 

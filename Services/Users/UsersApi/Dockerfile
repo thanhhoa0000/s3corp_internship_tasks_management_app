@@ -8,6 +8,7 @@ RUN chown -R app:app /home/app/.aspnet/https
 USER app
 WORKDIR /app
 COPY ["jwt_properties.json", "."]
+COPY ["nlog.config", "."]
 EXPOSE 5280
 EXPOSE 5281
 

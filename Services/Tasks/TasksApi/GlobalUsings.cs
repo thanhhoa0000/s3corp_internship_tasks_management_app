@@ -12,8 +12,12 @@ global using Microsoft.OpenApi.Models;
 
 global using Carter;
 global using AutoMapper;
+
 global using Asp.Versioning;
 global using Asp.Versioning.Builder;
+
+global using NLog;
+global using NLog.Web;
 
 global using TaskManagementApp.Services.TasksApi.Models;
 global using TaskManagementApp.Services.TasksApi.Models.Dtos;

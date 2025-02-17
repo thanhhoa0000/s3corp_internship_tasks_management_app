@@ -62,16 +62,6 @@
               "target": "Package",
               "version": "[1.6.23, )",
               "versionCentrallyManaged": true
-            },
-            "NLog": {
-              "target": "Package",
-              "version": "[5.4.0, )",
-              "versionCentrallyManaged": true
-            },
-            "NLog.Web.AspNetCore": {
-              "target": "Package",
-              "version": "[5.4.0, )",
-              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
