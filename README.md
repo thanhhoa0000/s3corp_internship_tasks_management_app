@@ -33,8 +33,8 @@ To run the app, you'll need Docker and Docker Compose installed.
 
 1. Clone the repository:
     ```bash
-    git clone <repository_url>
-    cd <repository_name>
+    git clone https://github.com/thanhhoa0000/s3corp_internship_transaction_and_concurrency
+    cd s3corp_internship_transaction_and_concurrency
     ```
 
 2. Build and run the containers:
