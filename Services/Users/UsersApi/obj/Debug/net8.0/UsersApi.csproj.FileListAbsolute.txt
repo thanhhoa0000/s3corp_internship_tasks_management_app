@@ -1,11 +1,3 @@
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.csproj.AssemblyReference.cache
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.GeneratedMSBuildEditorConfig.editorconfig
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.AssemblyInfoInputs.cache
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.AssemblyInfo.cs
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.csproj.CoreCompileInputs.cache
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.MvcApplicationPartsAssemblyInfo.cs
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.MvcApplicationPartsAssemblyInfo.cache
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.sourcelink.json
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\appsettings.Development.json
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\appsettings.json
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\UsersApi.staticwebassets.endpoints.json
@@ -25,6 +17,10 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Carter.Analyzers.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\FluentValidation.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Humanizer.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -52,6 +48,8 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
@@ -76,6 +74,9 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\NLog.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\NLog.Extensions.Logging.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\NLog.Web.AspNetCore.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\NuGet.Common.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\NuGet.Configuration.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
@@ -256,6 +257,14 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\BaseSharedLibrary.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\BaseSharedLibrary.pdb
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.csproj.AssemblyReference.cache
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.AssemblyInfoInputs.cache
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.AssemblyInfo.cs
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.csproj.CoreCompileInputs.cache
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.MvcApplicationPartsAssemblyInfo.cache
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.sourcelink.json
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\scopedcss\bundle\UsersApi.styles.css
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\staticwebassets.build.json
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\staticwebassets.development.json
@@ -273,8 +282,3 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.pdb
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\UsersApi.genruntimeconfig.cache
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\obj\Debug\net8.0\ref\UsersApi.dll
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Users\UsersApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll

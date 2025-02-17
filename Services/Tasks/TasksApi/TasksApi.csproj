@@ -13,13 +13,12 @@
 	  <Content Include="..\..\..\jwt_properties.json" Link="jwt_properties.json" />
 	</ItemGroup>
 
+	
+
 	<ItemGroup>
 		<PackageReference Include="Asp.Versioning.Http" />
 		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
-		<PackageReference Include="Swashbuckle.AspNetCore" />
-		<PackageReference Include="Carter" />
-		<PackageReference Include="AutoMapper" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" />
@@ -34,6 +33,9 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+		<PackageReference Include="Swashbuckle.AspNetCore" />
+		<PackageReference Include="Carter" />
+		<PackageReference Include="AutoMapper" />
 	</ItemGroup>
 
 	<ItemGroup>

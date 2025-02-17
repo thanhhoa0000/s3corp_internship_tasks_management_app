@@ -73,6 +73,9 @@ D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_conc
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\NLog.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\NLog.Extensions.Logging.dll
+D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\NLog.Web.AspNetCore.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\NuGet.Common.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\NuGet.Configuration.dll
 D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll

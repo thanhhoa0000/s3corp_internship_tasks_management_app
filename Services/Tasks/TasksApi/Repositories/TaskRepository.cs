@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace TaskManagementApp.Services.TasksApi.Repositories
+﻿namespace TaskManagementApp.Services.TasksApi.Repositories
 {
     public class TaskRepository : Repository<TaskItem, TaskContext>, ITaskRepository
     {
