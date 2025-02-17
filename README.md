@@ -46,3 +46,4 @@ To run the app, you'll need Docker and Docker Compose installed.
 docker --version
 docker-compose --version
 ```
+
