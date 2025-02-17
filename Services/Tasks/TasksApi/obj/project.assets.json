@@ -8377,7 +8377,8 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
           "NLog": "5.4.0",
           "NLog.Web.AspNetCore": "5.4.0",
-          "Swashbuckle.AspNetCore": "6.8.1"
+          "Swashbuckle.AspNetCore": "6.8.1",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2"
         },
         "imports": [
           "net461",
@@ -8415,6 +8416,10 @@
       "Microsoft.OpenApi": {
         "include": "Runtime, Compile, Native, BuildTransitive",
         "version": "[1.6.23, )"
+      },
+      "System.IdentityModel.Tokens.Jwt": {
+        "include": "Runtime, Compile, Native, BuildTransitive",
+        "version": "[7.1.2, )"
       }
     }
   }

@@ -1,4 +1,15 @@
 services:
+  web:
+    image: ${DOCKER_REGISTRY-}web
+    build:
+      context: .
+      dockerfile: Frontends/Web/Web/Dockerfile
+    ports:
+      - "7080:7080"
+      - "7081:7081"
+    networks:
+      tasks-management-net:
+
   tasks-api:
     image: ${DOCKER_REGISTRY-}tasks.api
     build:
@@ -73,5 +84,6 @@ volumes:
 networks:
   tasks-management-net:
     driver: bridge
+
 
 

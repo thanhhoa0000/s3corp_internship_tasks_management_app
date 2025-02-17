@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
 
@@ -11,6 +13,20 @@ try
 
     // Add services to the container.
     builder.Services.AddControllersWithViews();
+    builder.Services.AddHttpContextAccessor();
+    builder.Services.AddHttpClient();
+
+    ApiUrlProperties.TasksUrl = builder.Configuration["ApiUrls:Tasks"];
+    ApiUrlProperties.UsersUrl = builder.Configuration["ApiUrls:Users"];
+    ApiUrlProperties.AuthUrl = builder.Configuration["ApiUrls:Authentication"];
+
+    builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
 
     var app = builder.Build();
 
@@ -27,11 +43,13 @@ try
 
     app.UseRouting();
 
+    app.UseAuthentication();
+
     app.UseAuthorization();
 
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Account}/{action=Index}/{id?}");
 
     app.Run();
 }
