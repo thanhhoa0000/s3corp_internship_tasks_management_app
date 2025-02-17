@@ -1,5 +1,6 @@
 ﻿namespace TaskManagementApp.Frontends.Web.Controllers
 {
+    [Authorize(Roles = "Normal")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

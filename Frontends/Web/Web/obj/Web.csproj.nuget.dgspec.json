@@ -53,6 +53,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )",
+              "versionCentrallyManaged": true
+            },
             "NLog": {
               "target": "Package",
               "version": "[5.4.0, )",
@@ -61,6 +66,11 @@
             "NLog.Web.AspNetCore": {
               "target": "Package",
               "version": "[5.4.0, )",
+              "versionCentrallyManaged": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.1.2, )",
               "versionCentrallyManaged": true
             }
           },
@@ -89,7 +99,8 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
             "NLog": "5.4.0",
             "NLog.Web.AspNetCore": "5.4.0",
-            "Swashbuckle.AspNetCore": "6.8.1"
+            "Swashbuckle.AspNetCore": "6.8.1",
+            "System.IdentityModel.Tokens.Jwt": "7.1.2"
           },
           "imports": [
             "net461",

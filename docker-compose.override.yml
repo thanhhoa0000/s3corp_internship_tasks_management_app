@@ -1,4 +1,13 @@
 services:
+  web:
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "https://+:7081;http://+:7080"
+      ASPNETCORE_Kestrel__Certificates__Default__Password: ${HTTPS_DEV_CERTS_PASSWORD}
+      ASPNETCORE_Kestrel__Certificates__Default__Path: "/home/app/.aspnet/https/Web.pfx"
+    volumes:
+      - ./certs/.aspnet/https/Web.pfx:/home/app/.aspnet/https/Web.pfx:ro
+
   tasks-api:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"

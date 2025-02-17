@@ -41,8 +41,8 @@ To run the app, you'll need Docker and Docker Compose installed.
     docker compose up --build -d
     ```
 
-To verify that Docker is working correctly, you can check the status by running:
-    ```bash
-    docker --version
-    docker-compose --version
-    ```
+## To verify that Docker is working correctly, you can check the status by running:
+```bash
+docker --version
+docker-compose --version
+```
