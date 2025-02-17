@@ -161,6 +161,8 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 }
 
                 TaskItem task = mapper.Map<TaskItem>(taskDto);
+                task.ModifiedAt = DateTime.UtcNow;
+
                 await repository.UpdateAsync(task);
 
                 return TypedResults.NoContent();

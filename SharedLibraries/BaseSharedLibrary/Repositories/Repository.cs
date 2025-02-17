@@ -56,7 +56,7 @@
 
             IEnumerable<T> usersList = await query.ToListAsync();
 
-            return usersList;
+            return usersList;            
         }
 
         public async Task UpdateAsync(T user)

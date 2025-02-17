@@ -160,8 +160,9 @@
             "Microsoft.OpenApi": "1.6.23",
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
-            "Swashbuckle.AspNetCore": "6.8.1",
-            "Swashbuckle.AspNetCore.SwaggerGen": "6.8.1"
+            "NLog": "5.4.0",
+            "NLog.Web.AspNetCore": "5.4.0",
+            "Swashbuckle.AspNetCore": "6.8.1"
           },
           "imports": [
             "net461",
@@ -245,9 +246,14 @@
               "version": "[1.6.23, )",
               "versionCentrallyManaged": true
             },
-            "Swashbuckle.AspNetCore.SwaggerGen": {
+            "NLog": {
               "target": "Package",
-              "version": "[6.8.1, )",
+              "version": "[5.4.0, )",
+              "versionCentrallyManaged": true
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.4.0, )",
               "versionCentrallyManaged": true
             }
           },
@@ -274,8 +280,9 @@
             "Microsoft.OpenApi": "1.6.23",
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
-            "Swashbuckle.AspNetCore": "6.8.1",
-            "Swashbuckle.AspNetCore.SwaggerGen": "6.8.1"
+            "NLog": "5.4.0",
+            "NLog.Web.AspNetCore": "5.4.0",
+            "Swashbuckle.AspNetCore": "6.8.1"
           },
           "imports": [
             "net461",

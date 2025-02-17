@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bx96Rr+UY5g=",
+  "dgSpecHash": "pcL5Ux3jJ7s=",
   "success": true,
   "projectFilePath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.12\\microsoft.entityframeworkcore.analyzers.8.0.12.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.1\\microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.logging\\8.0.1\\microsoft.extensions.logging.8.0.1.nupkg.sha512",
@@ -16,8 +17,9 @@
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.openapi\\1.6.23\\microsoft.openapi.1.6.23.nupkg.sha512",
-    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.8.1\\swashbuckle.aspnetcore.swagger.6.8.1.nupkg.sha512",
-    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.8.1\\swashbuckle.aspnetcore.swaggergen.6.8.1.nupkg.sha512"
+    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\nlog\\5.4.0\\nlog.5.4.0.nupkg.sha512",
+    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\nlog.extensions.logging\\5.4.0\\nlog.extensions.logging.5.4.0.nupkg.sha512",
+    "C:\\Users\\hoa.nguyen\\.nuget\\packages\\nlog.web.aspnetcore\\5.4.0\\nlog.web.aspnetcore.5.4.0.nupkg.sha512"
   ],
   "logs": []
 }

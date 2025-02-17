@@ -1,4 +1,5 @@
 ﻿global using System.ComponentModel.DataAnnotations;
+global using System;
 global using System.Text;
 global using System.Text.Json;
 
