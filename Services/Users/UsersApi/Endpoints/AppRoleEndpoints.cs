@@ -26,13 +26,11 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
         public async Task<Results<Ok<IEnumerable<AppRole>>, BadRequest<string>>>
             GetRoles(
                 [FromServices] IAppRoleRepository repository,
-                [FromServices] ILoggerFactory loggerFactory,
+                [FromServices] ILogger<AppRoleEndpoints> logger,
                 HttpContext httpContext,
                 [FromQuery] int pageSize = 0,
                 [FromQuery] int pageNumber = 1)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AppRoleEndpoints));
-
             try
             {
                 logger.LogInformation("Getting the roles...");
@@ -63,10 +61,8 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
                 [FromServices] IAppRoleRepository repository,
                 Guid roleId,
                 IMapper mapper,
-                ILoggerFactory loggerFactory)
+                ILogger<AppRoleEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AppRoleEndpoints));
-
             try
             {
                 logger.LogInformation("Getting the role...");
@@ -96,10 +92,8 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
                 [FromServices] IAppRoleRepository repository,
                 IMapper mapper,
                 HttpContext httpContext,
-                ILoggerFactory loggerFactory)
+                ILogger<AppRoleEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AppRoleEndpoints));
-
             try
             {
                 if (roleName.IsNullOrEmpty())
@@ -145,10 +139,8 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
                 [FromBody] AppRoleDto roleDto,
                 [FromServices] IAppRoleRepository repository,
                 IMapper mapper,
-                ILoggerFactory loggerFactory)
+                ILogger<AppRoleEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AppRoleEndpoints));
-
             try
             {
                 if (roleDto is null)
@@ -192,10 +184,8 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
             DeleteRole(
                 [FromServices] IAppRoleRepository repository,
                 Guid roleId,
-                ILoggerFactory loggerFactory)
+                ILogger<AppRoleEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(AppRoleEndpoints));
-
             try
             {
                 logger.LogInformation($"Deleting role {roleId}");

@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-
-namespace TaskManagementApp.Services.TasksApi.Endpoints
+﻿namespace TaskManagementApp.Services.TasksApi.Endpoints
 {
     public class TaskItemEndpoints : ICarterModule
     {
@@ -26,13 +24,11 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
             GetTasks(
                 [FromServices] ITaskRepository repository,
                 IMapper mapper,
-                [FromServices] ILoggerFactory loggerFactory,
+                [FromServices] ILogger<TaskItemEndpoints> logger,
                 HttpContext httpContext,
                 [FromQuery] int pageSize = 0,
                 [FromQuery] int pageNumber = 1)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(TaskItemEndpoints));
-
             try
             {
                 logger.LogInformation("Getting the tasks...");
@@ -63,10 +59,8 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 [FromServices] ITaskRepository repository,
                 Guid taskId,
                 IMapper mapper,
-                ILoggerFactory loggerFactory)
+                ILogger<TaskItemEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(TaskItemEndpoints));
-
             try
             {
                 logger.LogInformation("Getting the task...");
@@ -96,10 +90,8 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 [FromServices] ITaskRepository repository,
                 IMapper mapper,
                 HttpContext httpContext,
-                ILoggerFactory loggerFactory)
+                ILogger<TaskItemEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(TaskItemEndpoints));
-
             try
             {
                 if (taskDto is null)
@@ -138,10 +130,8 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
                 [FromBody] TaskItemDto taskDto,
                 [FromServices] ITaskRepository repository,
                 IMapper mapper,
-                ILoggerFactory loggerFactory)
+                ILogger<TaskItemEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(TaskItemEndpoints));
-
             try
             {
                 if (taskDto is null)
@@ -179,10 +169,8 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
             DeleteTask(
                 Guid taskId,
                 [FromServices] ITaskRepository repository,
-                ILoggerFactory loggerFactory)
+                ILogger<TaskItemEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(TaskItemEndpoints));
-
             try
             {
                 if (taskId.ToString().IsNullOrEmpty())

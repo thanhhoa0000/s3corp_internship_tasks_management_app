@@ -126,6 +126,16 @@
               "version": "[8.0.5, )",
               "versionCentrallyManaged": true
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.4.0, )",
+              "versionCentrallyManaged": true
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.4.0, )",
+              "versionCentrallyManaged": true
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.8.1, )",
@@ -239,16 +249,6 @@
             "Microsoft.OpenApi": {
               "target": "Package",
               "version": "[1.6.23, )",
-              "versionCentrallyManaged": true
-            },
-            "NLog": {
-              "target": "Package",
-              "version": "[5.4.0, )",
-              "versionCentrallyManaged": true
-            },
-            "NLog.Web.AspNetCore": {
-              "target": "Package",
-              "version": "[5.4.0, )",
               "versionCentrallyManaged": true
             }
           },

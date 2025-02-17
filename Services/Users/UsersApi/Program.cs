@@ -1,78 +1,85 @@
-using Microsoft.Extensions.Options;
+var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+logger.Debug("init main");
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Configuration.AddJsonFile("jwt_properties.json", optional: false, reloadOnChange: true);
-
-builder.Services.AddApiVersioning(options =>
+try
 {
-    options.DefaultApiVersion = new ApiVersion(1);
-    options.ReportApiVersions = true;
-    options.AssumeDefaultVersionWhenUnspecified = true;
-    options.ApiVersionReader = ApiVersionReader.Combine(
-        new UrlSegmentApiVersionReader(),
-        new HeaderApiVersionReader("X-Api-Version"));
-})
-.AddApiExplorer(options =>
-{
-    options.GroupNameFormat = "'v'V";
-    options.SubstituteApiVersionInUrl = true;
-});
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer(options =>
+    // Use NLog
+    builder.Logging.ClearProviders();
+    builder.Host.UseNLog();
+
+    // Add services to the container.
+    builder.Configuration.AddJsonFile("jwt_properties.json", optional: false, reloadOnChange: true);
+
+    builder.Services.AddApiVersioning(options =>
     {
-        var iss = builder.Configuration.GetSection("JwtProperties:Issuer").Value;
-        var aud = builder.Configuration.GetSection("JwtProperties:Audience").Value;
-        var key = builder.Configuration.GetSection("JwtProperties:Key").Value;
+        options.DefaultApiVersion = new ApiVersion(1);
+        options.ReportApiVersions = true;
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        options.ApiVersionReader = ApiVersionReader.Combine(
+            new UrlSegmentApiVersionReader(),
+            new HeaderApiVersionReader("X-Api-Version"));
+    })
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'V";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
-        options.TokenValidationParameters = new TokenValidationParameters
+    builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+        .AddJwtBearer(options =>
         {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = iss,
-            ValidAudience = aud,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key!))
-        };
+            var iss = builder.Configuration.GetSection("JwtProperties:Issuer").Value;
+            var aud = builder.Configuration.GetSection("JwtProperties:Audience").Value;
+            var key = builder.Configuration.GetSection("JwtProperties:Key").Value;
+
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = iss,
+                ValidAudience = aud,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key!))
+            };
+        });
+
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
     });
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-});
-
-builder.Services.AddDbContextFactory<UserContext>(options
-    => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("UsersDB"),
-        sqlOptions => sqlOptions.EnableRetryOnFailure(
-            maxRetryCount: 5,
-            maxRetryDelay: TimeSpan.FromSeconds(15),
-            errorNumbersToAdd: null)
-        ));
+    builder.Services.AddDbContextFactory<UserContext>(options
+        => options.UseSqlServer(
+            builder.Configuration.GetConnectionString("UsersDB"),
+            sqlOptions => sqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(15),
+                errorNumbersToAdd: null)
+            ));
 
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(options =>
-{
-    options.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
+    builder.Services.AddSwaggerGen(options =>
     {
-        Name = "Authorization",
-        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
-    });
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
+        options.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.ApiKey,
+            Scheme = "Bearer"
+        });
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
         {
             new OpenApiSecurityScheme
             {
@@ -83,40 +90,49 @@ builder.Services.AddSwaggerGen(options =>
                 }
             }, new string[]{}
         }
+        });
     });
-});
 
-builder.Services.AddControllers();
+    builder.Services.AddControllers();
 
-builder.Services.AddSingleton<IUserRepository, UserRepository>();
-builder.Services.AddSingleton<IAppRoleRepository, AppRoleRepositoty>();
+    builder.Services.AddSingleton<IUserRepository, UserRepository>();
+    builder.Services.AddSingleton<IAppRoleRepository, AppRoleRepositoty>();
 
-builder.Services.AddCarter();
+    builder.Services.AddCarter();
 
-builder.Services.AddAutoMapper(config =>
-{
-    config.CreateMap<AppUser, AppUserDto>().ReverseMap();
-    config.CreateMap<NormalUser, NormalUserDto>().ReverseMap();
-    config.CreateMap<AdminUser, AdminUserDto>().ReverseMap();
-});
+    builder.Services.AddAutoMapper(config =>
+    {
+        config.CreateMap<AppUser, AppUserDto>().ReverseMap();
+        config.CreateMap<NormalUser, NormalUserDto>().ReverseMap();
+        config.CreateMap<AdminUser, AdminUserDto>().ReverseMap();
+    });
 
-var app = builder.Build();
+    var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.MapControllers();
+
+    app.MapCarter();
+
+    app.UseAuthentication();
+
+    app.UseAuthorization();
+
+    app.UseHttpsRedirection();
+
+    app.Run();
 }
-
-app.MapControllers();
-
-app.MapCarter();
-
-app.UseAuthentication();
-
-app.UseAuthorization();
-
-app.UseHttpsRedirection();
-
-app.Run();
+catch (Exception ex)
+{
+    logger.Error($"Error(s) occured when starting the app {typeof(Program)}:\n----{ex}");
+}
+finally
+{
+    LogManager.Shutdown();
+}

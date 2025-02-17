@@ -14,6 +14,9 @@ global using Microsoft.OpenApi.Models;
 global using Carter;
 global using AutoMapper;
 
+global using NLog;
+global using NLog.Web;
+
 global using Asp.Versioning;
 global using Asp.Versioning.Builder;
 

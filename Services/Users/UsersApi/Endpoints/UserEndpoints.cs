@@ -24,13 +24,11 @@
             GetUsers(
                 [FromServices] IUserRepository repository,
                 IMapper mapper,
-                [FromServices] ILoggerFactory loggerFactory,
+                [FromServices] ILogger<UserEndpoints> logger,
                 HttpContext httpContext,
                 [FromQuery] int pageSize = 0,
                 [FromQuery] int pageNumber = 1)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(UserEndpoints));
-
             try
             {
                 logger.LogInformation("Getting the users...");
@@ -61,10 +59,8 @@
                 [FromServices] IUserRepository repository,
                 Guid userId,
                 IMapper mapper,
-                ILoggerFactory loggerFactory)
+                ILogger<UserEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(UserEndpoints));
-
             try
             {
                 logger.LogInformation("Getting the user...");
@@ -95,10 +91,8 @@
                 [FromServices] IUserRepository repository,
                 IMapper mapper,
                 HttpContext httpContext,
-                ILoggerFactory loggerFactory)
+                ILogger<UserEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(UserEndpoints));
-
             try
             {
                 if (request.User is null)
@@ -154,10 +148,8 @@
                 [FromBody] AppUserDto userDto,
                 [FromServices] IUserRepository repository,
                 IMapper mapper,
-                ILoggerFactory loggerFactory)
+                ILogger<UserEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(UserEndpoints));
-
             try
             {
                 if (userDto is null)
@@ -193,10 +185,8 @@
             DeleteUser(
                 [FromServices] IUserRepository repository,
                 Guid userId,
-                ILoggerFactory loggerFactory)
+                ILogger<UserEndpoints> logger)
         {
-            ILogger logger = loggerFactory.CreateLogger(nameof(UserEndpoints));
-
             try
             {
                 if (userId.ToString().IsNullOrEmpty())
