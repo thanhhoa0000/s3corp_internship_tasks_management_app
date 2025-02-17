@@ -44,8 +44,8 @@ To run the app, you'll need Docker and Docker Compose installed.
 
 To verify that Docker is working correctly, you can check the status by running:
 <div style="margin-left: 40px;">
-```bash
+<pre><code class="language-bash">
 docker --version
 docker-compose --version
-```
+</code></pre>
 </div>
