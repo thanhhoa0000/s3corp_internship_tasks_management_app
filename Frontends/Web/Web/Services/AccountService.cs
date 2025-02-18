@@ -11,7 +11,7 @@
 
         public async Task<Response?> LoginAsync(LoginViewModel model)
         {
-            return await _service.SendAsync(new Request()
+            return await _service.SendAsync<LoginResponse>(new Request()
             {
                 ApiMethod = ApiMethod.Post,
                 Body = model,
@@ -21,7 +21,7 @@
 
         public async Task<Response?> RegisterAsync(RegisterViewModel model)
         {
-            return await _service.SendAsync(new Request()
+            return await _service.SendAsync<object>(new Request()
             {
                 ApiMethod = ApiMethod.Post,
                 Body = model,

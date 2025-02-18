@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Extensions.DependencyInjection;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
@@ -12,13 +14,44 @@ try
     builder.Host.UseNLog();
 
     // Add services to the container.
+    builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(@"/keys/"))
+    .SetApplicationName("MyTasks");
+
     builder.Services.AddControllersWithViews();
     builder.Services.AddHttpContextAccessor();
-    builder.Services.AddHttpClient();
+
+    builder.Services
+        .AddHttpClient("MyTasksApp")
+        .ConfigurePrimaryHttpMessageHandler(() =>
+        {
+            var password = builder.Configuration.GetSection("CertPassword").Value;
+
+            var trustedCerts = new List<X509Certificate2>
+            {
+                new X509Certificate2("/home/app/.aspnet/https/Authen.API.pfx", password),
+                new X509Certificate2("/home/app/.aspnet/https/Tasks.API.pfx", password),
+                new X509Certificate2("/home/app/.aspnet/https/Users.API.pfx", password)
+            };
+
+            var certificatesValidator = new CertificatesValidator(trustedCerts, logger);
+
+            return new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = certificatesValidator.Validate!
+            };
+        });
+
+    builder.Services.AddHttpClient<ITokenHandler, TokenHandler>();
+    builder.Services.AddHttpClient<IAccountService, AccountService>();
 
     ApiUrlProperties.TasksUrl = builder.Configuration["ApiUrls:Tasks"];
     ApiUrlProperties.UsersUrl = builder.Configuration["ApiUrls:Users"];
     ApiUrlProperties.AuthUrl = builder.Configuration["ApiUrls:Authentication"];
+
+    builder.Services.AddScoped<IBaseService, BaseService>();
+    builder.Services.AddScoped<ITokenHandler, TokenHandler>();
+    builder.Services.AddScoped<IAccountService, AccountService>();
 
     builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -41,6 +74,8 @@ try
     app.UseHttpsRedirection();
     app.UseStaticFiles();
 
+    app.UseAntiforgery();
+
     app.UseRouting();
 
     app.UseAuthentication();
@@ -49,7 +84,7 @@ try
 
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Account}/{action=Index}/{id?}");
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 
     app.Run();
 }

@@ -7,6 +7,7 @@ services:
       ASPNETCORE_Kestrel__Certificates__Default__Path: "/home/app/.aspnet/https/Web.pfx"
     volumes:
       - ./certs/.aspnet/https/Web.pfx:/home/app/.aspnet/https/Web.pfx:ro
+      - ./keys:/keys
 
   tasks-api:
     environment:

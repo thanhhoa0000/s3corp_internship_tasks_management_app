@@ -2,9 +2,13 @@
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+
 RUN mkdir -p /home/app/.aspnet/https
+
 COPY ./certs/.aspnet/https/Tasks.API.pfx /home/app/.aspnet/https/Tasks.API.pfx
+
 RUN chown -R app:app /home/app/.aspnet/https
+
 USER app
 WORKDIR /app
 COPY ["jwt_properties.json", "."]
@@ -15,6 +19,7 @@ EXPOSE 5031
 
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+RUN update-ca-certificates
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Directory.Packages.props", "."]
