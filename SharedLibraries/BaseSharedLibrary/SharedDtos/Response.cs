@@ -1,4 +1,4 @@
-﻿namespace TaskManagementApp.Frontends.Web.Models
+﻿namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos
 {
     public class Response
     {

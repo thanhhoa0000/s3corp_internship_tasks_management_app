@@ -2,6 +2,6 @@
 {
     public interface IBaseService
     {
-        Task<Response?> SendAsync(Request request, bool bearer = true);
+        Task<Response?> SendAsync<T>(Request request, bool bearer = true) where T : class;
     }
 }

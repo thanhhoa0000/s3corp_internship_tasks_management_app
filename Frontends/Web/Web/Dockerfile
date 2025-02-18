@@ -2,11 +2,22 @@
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+
 RUN mkdir -p /home/app/.aspnet/https
+
 COPY ./certs/.aspnet/https/Web.pfx /home/app/.aspnet/https/Web.pfx
+COPY ./certs/.aspnet/https/Authen.API.pfx /home/app/.aspnet/https/Authen.API.pfx
+COPY ./certs/.aspnet/https/Tasks.API.pfx /home/app/.aspnet/https/Tasks.API.pfx
+COPY ./certs/.aspnet/https/Users.API.pfx /home/app/.aspnet/https/Users.API.pfx
+
 RUN chown -R app:app /home/app/.aspnet/https
+
+COPY ./certs/.aspnet/https/mytasks_ca.crt /usr/local/share/ca-certificates/mytasks_ca.crt
+RUN chmod 644 /usr/local/share/ca-certificates && update-ca-certificates
+
 USER app
 WORKDIR /app
+COPY ["nlog.config", "."]
 EXPOSE 7080
 EXPOSE 7081
 
