@@ -38,20 +38,22 @@ try
 
             return new HttpClientHandler
             {
-                ServerCertificateCustomValidationCallback = certificatesValidator.Validate!
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
             };
         });
 
-    builder.Services.AddHttpClient<ITokenHandler, TokenHandler>();
+    builder.Services.AddHttpClient<ITokenProcessor, TokenProcessor>();
     builder.Services.AddHttpClient<IAccountService, AccountService>();
+    builder.Services.AddHttpClient<ITaskService, TaskService>();
 
     ApiUrlProperties.TasksUrl = builder.Configuration["ApiUrls:Tasks"];
     ApiUrlProperties.UsersUrl = builder.Configuration["ApiUrls:Users"];
     ApiUrlProperties.AuthUrl = builder.Configuration["ApiUrls:Authentication"];
 
     builder.Services.AddScoped<IBaseService, BaseService>();
-    builder.Services.AddScoped<ITokenHandler, TokenHandler>();
+    builder.Services.AddScoped<ITokenProcessor, TokenProcessor>();
     builder.Services.AddScoped<IAccountService, AccountService>();
+    builder.Services.AddScoped<ITaskService, TaskService>();
 
     builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

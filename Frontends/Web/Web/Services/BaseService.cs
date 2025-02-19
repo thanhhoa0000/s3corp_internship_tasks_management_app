@@ -5,17 +5,17 @@ namespace TaskManagementApp.Frontends.Web.Services
     public class BaseService : IBaseService
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly ITokenHandler _tokenHandler;
+        private readonly ITokenProcessor _tokenProcessor;
         private readonly ILogger<BaseService> _logger;
 
-        public BaseService(IHttpClientFactory httpClientFactory, ITokenHandler tokenHandler, ILogger<BaseService> logger)
+        public BaseService(IHttpClientFactory httpClientFactory, ITokenProcessor tokenHandler, ILogger<BaseService> logger)
         {
             _httpClientFactory = httpClientFactory;
-            _tokenHandler = tokenHandler;
+            _tokenProcessor = tokenHandler;
             _logger = logger;
         }
 
-        public async Task<Response?> SendAsync<T>(Request request, bool bearer = true) where T : class
+        public async Task<Response?> SendAsync(Request request, bool bearer = true)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace TaskManagementApp.Frontends.Web.Services
 
                 if (bearer)
                 {
-                    var token = _tokenHandler.GetToken();
+                    var token = _tokenProcessor.GetToken();
                     message.Headers.Add("Authorization", $"Bearer {token}");
                 }
 
@@ -35,7 +35,7 @@ namespace TaskManagementApp.Frontends.Web.Services
                 if (request.Body is not null)
                     message.Content = new StringContent(JsonSerializer.Serialize(request.Body), Encoding.UTF8, "application/json");
 
-                _logger.LogDebug($"Request: {message.Content}");
+                _logger.LogDebug($"Request: {request.Body}");
 
                 HttpResponseMessage? responseMessage = null;
 
@@ -70,7 +70,16 @@ namespace TaskManagementApp.Frontends.Web.Services
                     default:
                         var content = await responseMessage.Content.ReadAsStringAsync();
                         _logger.LogDebug($"Content string: {content}");
-                        var response = new Response() { Body = JsonSerializer.Deserialize<T>(content) };
+
+                        var response = new Response();
+
+                        if ((content.StartsWith("{") && content.EndsWith("}")) ||
+                            (content.StartsWith("[") && content.EndsWith("]")))
+                        {
+                            response.Body = JsonSerializer.Deserialize<JsonDocument>(content);
+                        }
+                        else
+                            response.Message = content;
 
                         return response;
                 }

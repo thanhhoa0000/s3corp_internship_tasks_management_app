@@ -1,4 +1,6 @@
-﻿namespace TaskManagementApp.Services.TasksApi.Endpoints
+﻿using System.Security.Claims;
+
+namespace TaskManagementApp.Services.TasksApi.Endpoints
 {
     public class TaskItemEndpoints : ICarterModule
     {
@@ -34,7 +36,11 @@
                 logger.LogInformation("Getting the tasks...");
 
                 IEnumerable<TaskItem> tasksList 
-                    = await repository.GetAllAsync(tracked: false, pageSize: pageSize, pageNumber: pageNumber);
+                    = await repository.GetAllAsync(
+                        t => t.UserId.ToString() == httpContext.User.FindFirst(ClaimTypes.NameIdentifier)!.Value, 
+                        tracked: false, 
+                        pageSize: pageSize, 
+                        pageNumber: pageNumber);
 
                 Pagination pagination = new Pagination()
                 {
@@ -44,7 +50,9 @@
 
                 httpContext.Response.Headers["X-Pagination"] = JsonSerializer.Serialize(pagination);
 
-                return TypedResults.Ok(mapper.Map<IEnumerable<TaskItemDto>>(tasksList));
+                return TypedResults.Ok(
+                    mapper.Map<IEnumerable<TaskItemDto>>(
+                        tasksList.OrderByDescending(task => task.ModifiedAt ?? task.CreatedTime)));
             }
             catch (Exception ex)
             {
@@ -84,7 +92,7 @@
             }
         }
 
-        public async Task<Results<Created, BadRequest<string>>> 
+        public async Task<Results<Ok<string>, BadRequest<string>>> 
             CreateTask(
                 [FromBody] TaskItemDto taskDto,
                 [FromServices] ITaskRepository repository,
@@ -101,21 +109,17 @@
                     return TypedResults.BadRequest("No input task was found");
                 }
 
-                logger.LogInformation($"Creating task {taskDto.Id}");
+                logger.LogInformation($"Creating task {taskDto.Name}");
 
-                if (await repository.GetAsync(t => t.Id == taskDto.Id, tracked:false) is not null)
-                {
-                    logger.LogError($"\n---\nTask {taskDto.Id} already existed!\n---\n");
+                taskDto.Id = Guid.NewGuid();
 
-                    return TypedResults.BadRequest("Task already existed!");
-                }
 
                 TaskItem task = mapper.Map<TaskItem>(taskDto);
                 await repository.CreateAsync(task);
 
                 var version = httpContext.GetRequestedApiVersion()?.ToString() ?? "1";
 
-                return TypedResults.Created($"/api/v{version}/tasks/{taskDto.Id}");
+                return TypedResults.Ok("Create the task successfully!");
             }
             catch (Exception ex)
             {

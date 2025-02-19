@@ -28,6 +28,9 @@ namespace TaskManagementApp.Services.TasksApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
@@ -42,10 +45,10 @@ namespace TaskManagementApp.Services.TasksApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
+                    b.HasKey("Id");
 
                     b.ToTable("TaskItems");
                 });

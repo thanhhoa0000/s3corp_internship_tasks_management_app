@@ -8,8 +8,14 @@ namespace TaskManagementApp.Services.AuthenticationApi.Models.Dtos
         public required string UserName { get; set; }
         [EmailAddress]
         public required string Email { get; set; }
-        [Required, PasswordPropertyText, MinLength(8)]
+        [Required]
+        [MinLength(8)]
+        [DataType(DataType.Password)]
         public required string Password { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        public required string ConfirmPassword { get; set; }
         [Phone, MaxLength(12)]
         public string? PhoneNumber { get; set; }
         [MinLength(2), MaxLength(30)]

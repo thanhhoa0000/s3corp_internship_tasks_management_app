@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Frontends\\Web\\Web\\Web.csproj": {}
+    "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Frontends\\Web\\Web\\Web.csproj": {}
   },
   "projects": {
-    "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Frontends\\Web\\Web\\Web.csproj": {
+    "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Frontends\\Web\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Frontends\\Web\\Web\\Web.csproj",
+        "projectUniqueName": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Frontends\\Web\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Frontends\\Web\\Web\\Web.csproj",
+        "projectPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Frontends\\Web\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\hoa.nguyen\\.nuget\\packages\\",
-        "outputPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Frontends\\Web\\Web\\obj\\",
+        "outputPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Frontends\\Web\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "CentralPackageTransitivePinningEnabled": true,
@@ -53,6 +53,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Humanizer": {
+              "target": "Package",
+              "version": "[2.14.1, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.21.0, )",
@@ -79,6 +84,7 @@
             "Asp.Versioning.Mvc.ApiExplorer": "8.1.0",
             "AutoMapper": "13.0.1",
             "Carter": "8.2.1",
+            "Humanizer": "2.14.1",
             "IdentityModel": "7.0.0",
             "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.12",
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.12",

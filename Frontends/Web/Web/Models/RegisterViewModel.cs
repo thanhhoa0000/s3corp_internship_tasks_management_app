@@ -8,10 +8,14 @@
         [Required(ErrorMessage = "Enter your email")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
         public required string Email { get; set; }
-        [PasswordPropertyText]
         [Required(ErrorMessage = "Enter your passwoord")]
         [MinLength(8, ErrorMessage = "Password must be at least 8 characters")]
+        [DataType(DataType.Password)]
         public required string Password { get; set; }
+        [Required(ErrorMessage = "Confirm your password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        public required string ConfirmPassword { get; set; }
         [Phone(ErrorMessage = "Invalid phone number format"), MaxLength(12)]
         public string? PhoneNumber { get; set; }
         [Required(ErrorMessage = "Enter your first name")]

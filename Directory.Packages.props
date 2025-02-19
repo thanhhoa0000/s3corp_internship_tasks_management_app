@@ -12,6 +12,7 @@
     <!-- Version together with AspVersioning  -->
     <PackageVersion Include="Asp.Versioning.Http" Version="$(AspVersioningVersion)" />
     <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="$(AspVersioningVersion)" />
+    <PackageVersion Include="Humanizer" Version="2.14.1" />
     <!-- Version together with ASP.NET -->
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspnetVersion)" />
