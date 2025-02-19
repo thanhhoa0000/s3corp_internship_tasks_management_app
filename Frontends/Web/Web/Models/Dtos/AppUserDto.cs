@@ -12,5 +12,11 @@
         [Phone]
         [JsonPropertyName("phoneNumber")]
         public required string PhoneNumber { get; set; }
+        [JsonPropertyName("firstName")]
+        [MinLength(2), MaxLength(30)]
+        public string? FirstName { get; set; }
+        [JsonPropertyName("lastName")]
+        [MinLength(2), MaxLength(50)]
+        public string? LastName { get; set; }
     }
 }

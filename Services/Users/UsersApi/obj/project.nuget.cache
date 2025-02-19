@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MhCW8U/M4PM=",
+  "dgSpecHash": "7zVCdKUhD4U=",
   "success": true,
-  "projectFilePath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Users\\UsersApi\\UsersApi.csproj",
+  "projectFilePath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Services\\Users\\UsersApi\\UsersApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",

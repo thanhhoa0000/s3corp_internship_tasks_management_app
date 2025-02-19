@@ -86,7 +86,7 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
             }
         }
 
-        public async Task<Results<Created, BadRequest<string>>>
+        public async Task<Results<Ok<string>, BadRequest<string>>>
             CreateRole(
                 [FromBody] string roleName,
                 [FromServices] IAppRoleRepository repository,
@@ -124,7 +124,7 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
 
                 var version = httpContext.GetRequestedApiVersion()?.ToString() ?? "1";
 
-                return TypedResults.Created($"/api/v{version}/roles/{roleName}");
+                return TypedResults.Ok("Create the role successfully!");
             }
             catch (Exception ex)
             {

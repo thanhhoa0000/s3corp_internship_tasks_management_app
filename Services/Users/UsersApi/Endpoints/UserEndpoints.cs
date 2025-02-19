@@ -85,7 +85,7 @@
         }
 
         // Create user and assign the role for that user
-        public async Task<Results<Created, BadRequest<string>>>
+        public async Task<Results<Ok<string>, BadRequest<string>>>
             CreateUser(
                 [FromBody] CreateUserRequest request,
                 [FromServices] IUserRepository repository,
@@ -133,7 +133,7 @@
 
                 var version = httpContext.GetRequestedApiVersion()?.ToString() ?? "1";
 
-                return TypedResults.Created($"/api/v{version}/users/{request.User.Id}");
+                return TypedResults.Ok("Create the user successfully!");
             }
             catch (Exception ex)
             {

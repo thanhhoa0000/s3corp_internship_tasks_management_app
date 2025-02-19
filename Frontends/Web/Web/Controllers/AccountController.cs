@@ -1,18 +1,12 @@
-﻿using System.Reflection;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-
-namespace TaskManagementApp.Frontends.Web.Controllers
+﻿namespace TaskManagementApp.Frontends.Web.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IAccountService _service;
-        private readonly ITokenHandler _tokenHandler;
+        private readonly ITokenProcessor _tokenHandler;
         private readonly ILogger<AccountController> _logger;
 
-        public AccountController(IAccountService service, ITokenHandler tokenHandler, ILogger<AccountController> logger)
+        public AccountController(IAccountService service, ITokenProcessor tokenHandler, ILogger<AccountController> logger)
         {
             _service = service;
             _tokenHandler = tokenHandler;
@@ -34,6 +28,8 @@ namespace TaskManagementApp.Frontends.Web.Controllers
         {
             Response? response = await _service.LoginAsync(model);
 
+            _logger.LogDebug($"Account controller response: {response!.Body}");
+
             if (response is null)
             {
                 TempData["error"] = "Invalid login response from server.";
@@ -42,8 +38,11 @@ namespace TaskManagementApp.Frontends.Web.Controllers
 
             if (response is not null && response.IsSuccess)
             {
+                
+
                 LoginResponse loginResponse 
-                    = JsonSerializer.Deserialize<LoginResponse>(Convert.ToString(response.Body)!)!;
+                    = JsonSerializer.Deserialize<LoginResponse>(((JsonDocument)response.Body!).RootElement.GetRawText())!;
+
 
                 var handler = new JwtSecurityTokenHandler();
                 var jwtToken = handler.ReadJwtToken(loginResponse.Token);
@@ -122,14 +121,18 @@ namespace TaskManagementApp.Frontends.Web.Controllers
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
             identity.AddClaim(new Claim(JwtRegisteredClaimNames.Email,
                 jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email)!.Value));
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier,
+                jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)!.Value));
+            identity.AddClaim(new Claim(JwtRegisteredClaimNames.Email,
+                jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email)!.Value));
             identity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub,
                 jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)!.Value));
             identity.AddClaim(new Claim(JwtRegisteredClaimNames.Name,
                 jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)!.Value));
             identity.AddClaim(new Claim(ClaimTypes.Name,
-                jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email)!.Value));
+                $"{response.User.FirstName} {response.User.LastName}"));
             identity.AddClaim(new Claim(ClaimTypes.Role,
-                jwtToken.Claims.FirstOrDefault(u => u.Type == "role")!.Value));
+                jwtToken.Claims.FirstOrDefault(u => u.Type == ClaimTypes.Role)!.Value));
 
             var principal = new ClaimsPrincipal(identity);
 

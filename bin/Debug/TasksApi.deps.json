@@ -22,6 +22,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.12",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.12",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
+          "NLog": "5.4.0",
+          "NLog.Web.AspNetCore": "5.4.0",
           "Swashbuckle.AspNetCore": "6.8.1"
         },
         "runtime": {
@@ -2083,9 +2085,7 @@
       "BaseSharedLibrary/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.12",
-          "Microsoft.OpenApi": "1.6.23",
-          "NLog": "5.4.0",
-          "NLog.Web.AspNetCore": "5.4.0"
+          "Microsoft.OpenApi": "1.6.23"
         },
         "runtime": {
           "BaseSharedLibrary.dll": {

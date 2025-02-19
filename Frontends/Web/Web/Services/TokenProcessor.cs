@@ -1,10 +1,10 @@
 ﻿namespace TaskManagementApp.Frontends.Web.Services
 {
-    public class TokenHandler : ITokenHandler
+    public class TokenProcessor : ITokenProcessor
     {
         private readonly IHttpContextAccessor _accessor;
 
-        public TokenHandler(IHttpContextAccessor accessor)
+        public TokenProcessor(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
         }

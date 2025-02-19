@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dAgA70g8E+g=",
+  "dgSpecHash": "pjMmIUn5IzY=",
   "success": true,
-  "projectFilePath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
+  "projectFilePath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.12\\microsoft.entityframeworkcore.8.0.12.nupkg.sha512",
     "C:\\Users\\hoa.nguyen\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.12\\microsoft.entityframeworkcore.abstractions.8.0.12.nupkg.sha512",

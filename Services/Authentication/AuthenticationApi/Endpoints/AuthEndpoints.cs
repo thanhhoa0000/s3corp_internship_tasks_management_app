@@ -62,7 +62,7 @@
             }
         }
 
-        public async Task<Results<Ok, BadRequest<string>>> 
+        public async Task<Results<Ok<string>, BadRequest<string>>> 
             Register(
                 [FromBody] RegistrationRequest request,
                 [FromServices] IAuthRepository repository,
@@ -83,7 +83,7 @@
                     await userManager.AddToRoleAsync(user, request.Role.ToString());
                 }
 
-                return TypedResults.Ok();
+                return TypedResults.Ok("Register successfully!");
             }
             catch (Exception ex)
             {

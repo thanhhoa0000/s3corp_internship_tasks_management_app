@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj": {}
+    "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj": {}
   },
   "projects": {
-    "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj": {
+    "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj",
+        "projectUniqueName": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj",
         "projectName": "AuthenticationApi",
-        "projectPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj",
+        "projectPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Services\\Authentication\\AuthenticationApi\\AuthenticationApi.csproj",
         "packagesPath": "C:\\Users\\hoa.nguyen\\.nuget\\packages\\",
-        "outputPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\Services\\Authentication\\AuthenticationApi\\obj\\",
+        "outputPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\Services\\Authentication\\AuthenticationApi\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "CentralPackageTransitivePinningEnabled": true,
@@ -34,8 +34,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj": {
-                "projectPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj"
+              "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj": {
+                "projectPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj"
               }
             }
           }
@@ -152,6 +152,7 @@
             "Asp.Versioning.Mvc.ApiExplorer": "8.1.0",
             "AutoMapper": "13.0.1",
             "Carter": "8.2.1",
+            "Humanizer": "2.14.1",
             "IdentityModel": "7.0.0",
             "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.12",
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.12",
@@ -198,14 +199,14 @@
         }
       }
     },
-    "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj": {
+    "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
+        "projectUniqueName": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
         "projectName": "BaseSharedLibrary",
-        "projectPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
+        "projectPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\BaseSharedLibrary.csproj",
         "packagesPath": "C:\\Users\\hoa.nguyen\\.nuget\\packages\\",
-        "outputPath": "D:\\Internship\\Code\\Tasks\\Day3_Concurrency\\s3corp_internship_transaction_and_concurrency\\SharedLibraries\\BaseSharedLibrary\\obj\\",
+        "outputPath": "D:\\Internship\\Code\\Tasks\\s3corp_internship_tasks_management_app\\SharedLibraries\\BaseSharedLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "CentralPackageTransitivePinningEnabled": true,
@@ -263,6 +264,7 @@
             "Asp.Versioning.Mvc.ApiExplorer": "8.1.0",
             "AutoMapper": "13.0.1",
             "Carter": "8.2.1",
+            "Humanizer": "2.14.1",
             "IdentityModel": "7.0.0",
             "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.12",
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.12",
