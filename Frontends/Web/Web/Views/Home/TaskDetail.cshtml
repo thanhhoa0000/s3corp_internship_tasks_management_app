@@ -27,6 +27,11 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-3 offset-9 pb-3">
+                <a asp-controller="Task" asp-action="Update" asp-route-taskId="@Model.Id" class="btn btn-secondary btn-square form-control">Edit</a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-3 offset-9 pb-2">
                 <form asp-controller="Task" asp-action="Delete" method="post" onsubmit="return confirm('Are you sure you want to delete this task?');">
                     <input type="hidden" name="taskId" value="@Model.Id" />

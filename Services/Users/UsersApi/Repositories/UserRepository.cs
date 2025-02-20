@@ -1,7 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Identity;
-
-namespace TaskManagementApp.Services.UsersApi.Repositories
+﻿namespace TaskManagementApp.Services.UsersApi.Repositories
 {
     public class UserRepository : Repository<AppUser, UserContext>, IUserRepository
     {

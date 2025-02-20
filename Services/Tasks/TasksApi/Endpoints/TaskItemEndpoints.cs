@@ -129,7 +129,7 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
             }
         }
 
-        public async Task<Results<NoContent, NotFound<string>, BadRequest<string>>>
+        public async Task<Results<Ok<string>, NotFound<string>, BadRequest<string>>>
             UpdateTask(
                 [FromBody] TaskItemDto taskDto,
                 [FromServices] ITaskRepository repository,
@@ -159,7 +159,7 @@ namespace TaskManagementApp.Services.TasksApi.Endpoints
 
                 await repository.UpdateAsync(task);
 
-                return TypedResults.NoContent();
+                return TypedResults.Ok("Update task successfully!");
             }
             catch (Exception ex)
             {

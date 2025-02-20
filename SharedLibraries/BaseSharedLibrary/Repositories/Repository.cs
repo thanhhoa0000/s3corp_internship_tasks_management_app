@@ -1,7 +1,10 @@
-﻿namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+using TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos;
+
+namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.Repositories
 {
     public class Repository<T, TContext> : IRepository<T>, IDisposable 
-        where T : class
+        where T : class, IEntity
         where TContext : DbContext
     {
         protected readonly TContext _context;
@@ -59,15 +62,26 @@
             return usersList;            
         }
 
-        public async Task UpdateAsync(T user)
+        public async Task UpdateAsync(T entity)
         {
-            _dbSet.Update(user);
+            var existingEntity = await _dbSet.FindAsync(entity.Id);
+
+            if (existingEntity != null)
+            {
+                _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+            }
+            else
+            {
+                _dbSet.Attach(entity);
+                _context.Entry(entity).State = EntityState.Modified;
+            }
+
             await SaveAsync();
         }
 
-        public async Task RemoveAsync(T user)
+        public async Task RemoveAsync(T entity)
         {
-            _dbSet.Remove(user);
+            _dbSet.Remove(entity);
             await SaveAsync();
         }
 

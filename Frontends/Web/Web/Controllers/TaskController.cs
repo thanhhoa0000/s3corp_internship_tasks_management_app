@@ -25,7 +25,6 @@
         {
             if (ModelState.IsValid)
             {
-                _logger.LogDebug($"User ID when create task: {User.FindFirst(ClaimTypes.NameIdentifier)!.Value}");
                 taskDto.UserId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
                 Response? response = await _service.CreateTaskAsync(taskDto);
 
@@ -53,6 +52,42 @@
                 TempData["error"] = "Error occured when deleting task!";
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> Update(Guid taskId)
+        {
+            Response? response = await _service.GetTaskAsync(taskId);
+
+            if (!response!.IsSuccess)
+            {
+                TempData["error"] = "Error occured when getting task!";
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = JsonSerializer.Deserialize<TaskItemDto>(((JsonDocument)response!.Body!).RootElement.GetRawText())!;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(TaskItemDto taskDto)
+        {
+            if (ModelState.IsValid)
+            {
+                Response? response = await _service.UpdateTaskAsync(taskDto);
+
+                if (response!.IsSuccess)
+                {
+                    TempData["success"] = "Update task successfully!";
+
+                    return RedirectToAction("TaskDetail", "Home", new { taskId = taskDto.Id });
+                }
+
+                TempData["error"] = "Error occured when creating the task";
+            }
+
+            return View(taskDto);
         }
     }
 }
