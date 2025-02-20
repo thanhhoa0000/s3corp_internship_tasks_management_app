@@ -1,6 +1,6 @@
 ﻿namespace TaskManagementApp.Services.AuthenticationApi.Models
 {
-    public class AppUser : IdentityUser<Guid>
+    public class AppUser : IdentityUser<Guid>, IEntity
     {
         [MinLength(2), MaxLength(30)]
         public string? FirstName { get; set; }

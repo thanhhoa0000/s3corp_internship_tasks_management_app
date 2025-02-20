@@ -1,6 +1,6 @@
 ﻿namespace TaskManagementApp.Services.TasksApi.Models
 {
-    public class TaskItem
+    public class TaskItem : IEntity
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();

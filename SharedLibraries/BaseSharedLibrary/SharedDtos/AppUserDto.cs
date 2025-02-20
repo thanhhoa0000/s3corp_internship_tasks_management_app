@@ -1,6 +1,6 @@
 ﻿namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.SharedDtos
 {
-    public class AppUserDto
+    public class AppUserDto : IEntity
     {
         public Guid Id { get; set; }
         public required string UserName { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace TaskManagementApp.Services.TasksApi.Models.Dtos
 {
-    public class TaskItemDto
+    public class TaskItemDto : IEntity
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
