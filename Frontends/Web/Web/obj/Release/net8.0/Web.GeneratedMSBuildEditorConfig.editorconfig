@@ -9,49 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TaskManagementApp.Frontends.Web
 build_property.RootNamespace = TaskManagementApp.Frontends.Web
-build_property.ProjectDir = D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Frontends\Web\Web\
+build_property.ProjectDir = D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Frontends\Web\Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Internship\Code\Tasks\Day3_Concurrency\s3corp_internship_transaction_and_concurrency\Frontends\Web\Web
+build_property.MSBuildProjectDirectory = D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Frontends\Web\Web
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Account/Login.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Account/Register.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Home/Index.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Home/Privacy.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Shared/Error.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Home/TaskDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUYXNrRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Shared/_Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/_ViewImports.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Task/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Task/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/User/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/_ViewStart.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Internship/Code/Tasks/Day3_Concurrency/s3corp_internship_transaction_and_concurrency/Frontends/Web/Web/Views/Shared/_Layout.cshtml]
+[D:/Internship/Code/Tasks/s3corp_internship_tasks_management_app/Frontends/Web/Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lzldzk1rll
