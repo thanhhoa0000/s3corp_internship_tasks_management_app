@@ -33,6 +33,10 @@
                 .HasIndex(r => r.Name)
                 .IsUnique();
 
+            builder.Entity<AppUser>()
+                .HasIndex(r => r.UserName)
+                .IsUnique();
+
             builder.Entity<IdentityUserRole<Guid>>()
                 .HasKey(ur => new { ur.UserId, ur.RoleId });
             builder.Entity<IdentityUserRole<Guid>>()

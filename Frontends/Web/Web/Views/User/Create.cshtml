@@ -1,0 +1,48 @@
+﻿@model CreateUserRequest
+@{
+    ViewData["Title"] = "Add user";
+}
+<form method="post" asp-controller="User" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Add user</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <input asp-for="User.UserName" class="form-control" type="text" placeholder="Username..." />
+                <span asp-validation-for="User.UserName" class="text-danger" />
+            </div>
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <input asp-for="User.Email" class="form-control" type="email" placeholder="Email..." />
+                <span asp-validation-for="User.Email" class="text-danger" />
+            </div>
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <input asp-for="User.PhoneNumber" class="form-control" type="number" placeholder="Phone..." />
+                <span asp-validation-for="User.PhoneNumber" class="text-danger" />
+            </div>
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <input asp-for="User.FirstName" class="form-control" type="text" placeholder="First name..." />
+                <span asp-validation-for="User.FirstName" class="text-danger" />
+            </div>
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <input asp-for="User.LastName" class="form-control" type="text" placeholder="Last name..." />
+                <span asp-validation-for="User.LastName" class="text-danger" />
+            </div>
+
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <button type="submit" class="form-control btn btn-success" value="Submit">Create</button>
+            </div>
+        </div>
+
+        <div class="row text-center pt-3">
+            <div class="col-12 col-md-6 offset-md-3 pb-2">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-dark">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

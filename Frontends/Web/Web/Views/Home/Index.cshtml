@@ -4,7 +4,7 @@
 
     var currentTime = DateTime.UtcNow;
 
-    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 }
 
 <div class="text-center">

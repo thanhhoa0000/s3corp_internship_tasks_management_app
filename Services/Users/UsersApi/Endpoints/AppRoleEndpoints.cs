@@ -1,7 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using TaskManagementApp.Services.UsersApi.Models.Dtos;
-
-namespace TaskManagementApp.Services.UsersApi.Endpoints
+﻿namespace TaskManagementApp.Services.UsersApi.Endpoints
 {
     public class AppRoleEndpoints : ICarterModule
     {
@@ -152,7 +149,7 @@ namespace TaskManagementApp.Services.UsersApi.Endpoints
 
                 logger.LogInformation($"Updating role {roleDto.Name}");
 
-                var role = await repository.GetAsync(r => r.Name == roleDto.Name);
+                var role = await repository.GetAsync(r => r.Id == roleDto.Id);
 
                 if (role is null)
                 {

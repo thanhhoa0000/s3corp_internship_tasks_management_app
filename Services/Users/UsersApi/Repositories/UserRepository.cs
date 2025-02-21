@@ -9,9 +9,11 @@
             
         }
 
-        public async Task AssignRoleAsync(Guid userId, Guid roleId)
+        public async Task AssignAdminRoleAsync(Guid userId)
         {
-            var userRole = new IdentityUserRole<Guid> { UserId = userId, RoleId = roleId };
+            var adminRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
+
+            var userRole = new IdentityUserRole<Guid> { UserId = userId, RoleId = adminRole!.Id };
             await _context.Set<IdentityUserRole<Guid>>().AddAsync(userRole);
             await _context.SaveChangesAsync();
         }

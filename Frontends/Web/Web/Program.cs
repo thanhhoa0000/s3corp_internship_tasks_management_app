@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.Extensions.DependencyInjection;
-
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
 
@@ -45,6 +41,7 @@ try
     builder.Services.AddHttpClient<ITokenProcessor, TokenProcessor>();
     builder.Services.AddHttpClient<IAccountService, AccountService>();
     builder.Services.AddHttpClient<ITaskService, TaskService>();
+    builder.Services.AddHttpClient<IUserService, UserService>();
 
     ApiUrlProperties.TasksUrl = builder.Configuration["ApiUrls:Tasks"];
     ApiUrlProperties.UsersUrl = builder.Configuration["ApiUrls:Users"];
@@ -54,6 +51,7 @@ try
     builder.Services.AddScoped<ITokenProcessor, TokenProcessor>();
     builder.Services.AddScoped<IAccountService, AccountService>();
     builder.Services.AddScoped<ITaskService, TaskService>();
+    builder.Services.AddScoped<IUserService, UserService>();
 
     builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
