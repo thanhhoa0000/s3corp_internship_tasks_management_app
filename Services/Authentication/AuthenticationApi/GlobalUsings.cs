@@ -1,12 +1,12 @@
 ﻿global using System.ComponentModel.DataAnnotations;
 global using System.Text;
-global using System.Text.Json;
-global using System.Text.Json.Serialization;
+global using System.Security.Cryptography;
 global using System.Security.Claims;
 
 global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.IdentityModel.JsonWebTokens;
 global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
 global using Microsoft.AspNetCore.Http.HttpResults;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Identity;

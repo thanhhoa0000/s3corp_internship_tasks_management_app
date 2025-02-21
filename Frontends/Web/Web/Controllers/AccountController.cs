@@ -43,7 +43,7 @@
 
 
                 var handler = new JwtSecurityTokenHandler();
-                var jwtToken = handler.ReadJwtToken(loginResponse.Token);
+                var jwtToken = handler.ReadJwtToken(loginResponse.AccessToken);
 
                 var roleClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role || c.Type == "role")?.Value ?? "";
                 var nameClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name || c.Type == "name")?.Value ?? "";
@@ -55,9 +55,9 @@
                     return View(model);
                 }
 
-                await SignUserIn(loginResponse);
+                await SignUserIn(loginResponse, nameClaim);
 
-                _tokenHandler.SetToken(loginResponse.Token);
+                _tokenHandler.SetToken(loginResponse.AccessToken);
 
                 if (roleClaim == "Admin")
                 {
@@ -125,11 +125,11 @@
             return RedirectToAction("Login", "Account");
         }
 
-        private async Task SignUserIn(LoginResponse response)
+        private async Task SignUserIn(LoginResponse response, string nameClaim)
         {
             var handler = new JwtSecurityTokenHandler();
 
-            var jwtToken = handler.ReadJwtToken(response.Token);
+            var jwtToken = handler.ReadJwtToken(response.AccessToken);
 
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
             identity.AddClaim(new Claim(JwtRegisteredClaimNames.Email,
@@ -142,8 +142,7 @@
                 jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)!.Value));
             identity.AddClaim(new Claim(JwtRegisteredClaimNames.Name,
                 jwtToken.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)!.Value));
-            identity.AddClaim(new Claim(ClaimTypes.Name,
-                $"{response.User.FirstName} {response.User.LastName}"));
+            identity.AddClaim(new Claim(ClaimTypes.Name, nameClaim));
             identity.AddClaim(new Claim(ClaimTypes.Role,
                 jwtToken.Claims.FirstOrDefault(u => u.Type == ClaimTypes.Role)!.Value));
 

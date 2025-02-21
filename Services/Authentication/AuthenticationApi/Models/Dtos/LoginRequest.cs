@@ -2,7 +2,7 @@
 
 namespace TaskManagementApp.Services.AuthenticationApi.Models.Dtos
 {
-    public class LoginRequest
+    public sealed class LoginRequest
     {
         [Required, MinLength(6)]
         public required string UserName { get; set; }

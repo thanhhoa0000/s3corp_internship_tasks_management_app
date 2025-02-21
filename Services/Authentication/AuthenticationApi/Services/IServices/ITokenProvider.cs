@@ -3,5 +3,6 @@
     public interface ITokenProvider
     {
         string CreateToken(AppUser user, IEnumerable<Role> roles);
+        string GenerateRefreshToken();
     }
 }
