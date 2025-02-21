@@ -35,7 +35,7 @@ namespace TaskManagementApp.Frontends.Web.Services
                 if (request.Body is not null)
                     message.Content = new StringContent(JsonSerializer.Serialize(request.Body), Encoding.UTF8, "application/json");
 
-                _logger.LogDebug($"Request: {request.Body}");
+                _logger.LogDebug($"\nRequest: {request.Body}");
 
                 HttpResponseMessage? responseMessage = null;
 
@@ -69,7 +69,7 @@ namespace TaskManagementApp.Frontends.Web.Services
                         return new() { IsSuccess = false, Message = "Internal Server Error" };
                     default:
                         var content = await responseMessage.Content.ReadAsStringAsync();
-                        _logger.LogDebug($"Content string: {content}");
+                        _logger.LogDebug($"\nContent string: {content}");
 
                         var response = new Response();
 
@@ -79,7 +79,7 @@ namespace TaskManagementApp.Frontends.Web.Services
                             response.Body = JsonSerializer.Deserialize<JsonDocument>(content);
                         }
                         else
-                            response.Message = content;
+                            response.Message = content.Trim();
 
                         return response;
                 }

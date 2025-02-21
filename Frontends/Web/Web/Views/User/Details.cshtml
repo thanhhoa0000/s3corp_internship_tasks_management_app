@@ -1,0 +1,55 @@
+﻿@model AppUserDto
+@{
+    ViewData["Title"] = $"User {Model.UserName}'s details";
+}
+
+<div class="pt-4">
+    <div class="card container" style="border:1px solid #808080;">
+        <div class="card-header text-dark row" style="border-radius: 0px;">
+            <div class="col-12">
+                <h6 class="text-dark"><span class="fw-normal">User ID:</span> @Model.Id</h6>
+            </div>
+            <div class="col-12 col-md-6">
+                <h1 class="text-dark"><span class ="fw-normal">Name:</span> @Model.FirstName @Model.LastName</h1>
+            </div>
+            <div class="col-12 col-md-6 text-end mt-3">
+                <h5 class="text-dark"><span class="fw-normal">Username:</span> @Model.UserName</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container rounded p-2">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="row pl-3">
+                            <div class="col-12">
+                                <p class="text-secondary pt-3">Email: <b>@Model.Email</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-9 pb-3">
+                <a asp-controller="User" asp-action="Update" asp-route-userId="@Model.Id" class="btn btn-secondary btn-square form-control">Edit</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-9 pb-2">
+                <form asp-controller="User" asp-action="Delete" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                    <input type="hidden" name="userId" value="@Model.Id" />
+                    <button type="submit" class="btn btn-danger btn-square form-control">Delete</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-9 pb-3">
+                <a asp-action="Index" class="btn btn-outline-dark btn-square form-control">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

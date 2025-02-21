@@ -81,8 +81,18 @@ namespace TaskManagementApp.SharedLibraries.BaseSharedLibraries.Repositories
 
         public async Task RemoveAsync(T entity)
         {
-            _dbSet.Remove(entity);
+            var existingEntity = _dbSet.Local.FirstOrDefault(e => e.Id == entity.Id);
+            if (existingEntity != null)
+            {
+                _dbSet.Remove(existingEntity);
+            }
+            else
+            {
+                _dbSet.Attach(entity);
+                _dbSet.Remove(entity);
+            }
             await SaveAsync();
+
         }
 
         public async Task SaveAsync()

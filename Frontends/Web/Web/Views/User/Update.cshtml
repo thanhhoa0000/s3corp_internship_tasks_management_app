@@ -1,0 +1,70 @@
+﻿@model AppUserDto
+@{
+    ViewData["Title"] = $"Update {Model.UserName}";
+}
+
+<form asp-controller="User" asp-action="Update" method="POST">
+    <div class="pt-4">
+        <div class="card container" style="border:1px solid #808080;">
+            <div class="card-header text-dark row" style="border-radius: 0px;">
+                <input asp-for="Id" hidden />
+
+                <div class="row">
+                    <div class="col-2">
+                        <label class="control-label pt-2" style="font-size:20px;"> Firstname</label>
+                    </div>
+                    <div class="col-10 col-md-6">
+                        <h1 class="text-dark">
+                            <input asp-for="FirstName" class="form-control" type="text" placeholder="Firstname..." />
+                            <span asp-validation-for="FirstName" class="text-danger" />
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label class="control-label pt-2" style="font-size:20px;"> LastName</label>
+                    </div>
+                    <div class="col-10 col-md-6">
+                        <h1 class="text-dark">
+                            <input asp-for="LastName" class="form-control" type="text" placeholder="Lastname..." />
+                            <span asp-validation-for="LastName" class="text-danger" />
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container rounded p-2">
+                    <div class="row">
+                        <div class="col-12 col-lg-8">
+                            <div class="row pl-3">
+                                <div class="col-12">
+                                    <input asp-for="Email" class="text-secondary pt-3 form-control" type="email" placeholder="Email..." />
+                                    <span asp-validation-for="Email" class="text-danger" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-9 pb-3">
+                    <a asp-controller="User" asp-action="Index" class="btn btn-outline-primary btn-square form-control">Back to Home</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-9 pb-3">
+                    <a asp-controller="User" asp-action="Details" asp-route-taskId="@Model.Id" class="btn btn-outline-dark btn-square form-control">Back to Details</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-9 pb-2">
+                    <button type="submit" class="btn btn-success btn-square form-control">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

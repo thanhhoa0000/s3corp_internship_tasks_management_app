@@ -4,12 +4,10 @@
     public class TaskController : Controller
     {
         private readonly ITaskService _service;
-        private readonly ILogger<TaskController> _logger;
 
-        public TaskController(ITaskService service, ILogger<TaskController> logger)
+        public TaskController(ITaskService service)
         {
             _service = service;
-            _logger = logger;
         }
 
         [HttpGet]

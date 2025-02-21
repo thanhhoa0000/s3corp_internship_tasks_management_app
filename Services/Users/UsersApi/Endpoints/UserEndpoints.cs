@@ -102,13 +102,6 @@
                     return TypedResults.BadRequest("No input user was found");
                 }
 
-                if (request.Role is null)
-                {
-                    logger.LogError("\n---\nInput role is null!\n---\n");
-
-                    return TypedResults.BadRequest("No input role was found");
-                }
-
                 logger.LogInformation($"Creating user {request.User.Id}");
 
                 if (await repository.GetAsync(u => u.Id == request.User.Id, tracked: false) is not null)
@@ -128,7 +121,7 @@
                 await repository.CreateAsync(user);
 
                 logger.LogInformation($"Assign role {request.Role.Name} to user {request.User.Id}");
-                await repository.AssignRoleAsync(user.Id, request.Role.Id);
+                await repository.AssignAdminRoleAsync(user.Id);
                 
 
                 var version = httpContext.GetRequestedApiVersion()?.ToString() ?? "1";

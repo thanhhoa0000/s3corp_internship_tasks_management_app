@@ -28,7 +28,7 @@
         {
             Response? response = await _service.LoginAsync(model);
 
-            _logger.LogDebug($"Account controller response: {response!.Body}");
+            _logger.LogDebug($"Account controller response: {response!.Body ?? response!.Message}");
 
             if (response is null)
             {
@@ -36,10 +36,8 @@
                 return View(model);
             }
 
-            if (response is not null && response.IsSuccess)
+            if (response.Body is not null && response.IsSuccess)
             {
-                
-
                 LoginResponse loginResponse 
                     = JsonSerializer.Deserialize<LoginResponse>(((JsonDocument)response.Body!).RootElement.GetRawText())!;
 
@@ -48,6 +46,7 @@
                 var jwtToken = handler.ReadJwtToken(loginResponse.Token);
 
                 var roleClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role || c.Type == "role")?.Value ?? "";
+                var nameClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name || c.Type == "name")?.Value ?? "";
 
                 if (roleClaim.ToString().IsNullOrEmpty())
                 {
@@ -61,19 +60,33 @@
                 _tokenHandler.SetToken(loginResponse.Token);
 
                 if (roleClaim == "Admin")
-                    return RedirectToAction("Index", "Users");
-                else if (roleClaim == "Normal")
-                    return RedirectToAction("Index", "Home");
+                {
+                    TempData["success"] = $"Hello admin {nameClaim}";
 
-                TempData["error"] = response?.Message ?? "Login failed. Please try again.";
+                    return RedirectToAction("Index", "User");
+                }
+                else if (roleClaim == "Normal")
+                {
+                    TempData["success"] = $"Hello {nameClaim}";
+
+                    return RedirectToAction("Index", "Home");
+                }
+
+                TempData["error"] = $"Invalid login response from server: {response.Message}";
 
                 return View(model);
             }
 
-            TempData["error"] = "Invalid login response from server.";
+            if (response.Message.Contains("Username or password is wrong!"))
+            {
+                TempData["error"] = response.Message;
+            }
+            else
+            {
+                TempData["error"] = $"Invalid login response from server: {response.Message}";
+            }
 
             return View(model);
-
         }
 
         [HttpGet]

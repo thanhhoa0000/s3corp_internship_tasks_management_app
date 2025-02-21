@@ -2,6 +2,6 @@
 {
     public interface IUserRepository : IRepository<AppUser>
     {
-        Task AssignRoleAsync(Guid userId, Guid roleId);
+        Task AssignAdminRoleAsync(Guid userId);
     }
 }

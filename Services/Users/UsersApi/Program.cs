@@ -105,6 +105,7 @@ try
         config.CreateMap<AppUser, AppUserDto>().ReverseMap();
         config.CreateMap<NormalUser, NormalUserDto>().ReverseMap();
         config.CreateMap<AdminUser, AdminUserDto>().ReverseMap();
+        config.CreateMap<AppRole, AppRoleDto>().ReverseMap();
     });
 
     var app = builder.Build();
