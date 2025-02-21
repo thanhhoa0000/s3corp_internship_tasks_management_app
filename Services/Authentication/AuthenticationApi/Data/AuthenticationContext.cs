@@ -7,6 +7,8 @@
         public DbSet<NormalUser> NormalUsers { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
+        
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -557,7 +557,6 @@ D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authent
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.AuthenticationApi.props
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.AuthenticationApi.props
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\Authenti.D938D8C2.Up2Date
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\AuthenticationApi.dll
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\refint\AuthenticationApi.dll

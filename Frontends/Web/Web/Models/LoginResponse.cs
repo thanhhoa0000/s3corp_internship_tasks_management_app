@@ -2,9 +2,9 @@
 {
     public class LoginResponse
     {
-        [JsonPropertyName("user")]
-        public required AppUserDto User { get; set; }
-        [JsonPropertyName("token")]
-        public required string Token { get; set; }
+        [JsonPropertyName("accessToken")]
+        public required string AccessToken { get; set; }
+        [JsonPropertyName("refreshToken")]
+        public required string RefreshTokenToken { get; set; }
     }
 }
