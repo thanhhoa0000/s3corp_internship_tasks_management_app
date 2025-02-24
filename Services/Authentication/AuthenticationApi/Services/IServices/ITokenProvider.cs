@@ -2,7 +2,7 @@
 {
     public interface ITokenProvider
     {
-        string CreateToken(AppUser user, IEnumerable<Role> roles);
+        string CreateAccessToken(AppUser user, IEnumerable<Role> roles);
         string GenerateRefreshToken();
     }
 }

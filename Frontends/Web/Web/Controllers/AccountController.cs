@@ -30,12 +30,6 @@
 
             _logger.LogDebug($"Account controller response: {response!.Body ?? response!.Message}");
 
-            if (response is null)
-            {
-                TempData["error"] = "Invalid login response from server.";
-                return View(model);
-            }
-
             if (response.Body is not null && response.IsSuccess)
             {
                 LoginResponse loginResponse 
@@ -48,7 +42,7 @@
                 var roleClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role || c.Type == "role")?.Value ?? "";
                 var nameClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name || c.Type == "name")?.Value ?? "";
 
-                if (roleClaim.ToString().IsNullOrEmpty())
+                if (roleClaim.IsNullOrEmpty())
                 {
                     TempData["error"] = "Error(s) occured!";
 
@@ -57,7 +51,7 @@
 
                 await SignUserIn(loginResponse, nameClaim);
 
-                _tokenHandler.SetToken(loginResponse.AccessToken);
+                _tokenHandler.SetTokens(loginResponse.AccessToken, loginResponse.RefreshToken);
 
                 if (roleClaim == "Admin")
                 {
@@ -65,7 +59,7 @@
 
                     return RedirectToAction("Index", "User");
                 }
-                else if (roleClaim == "Normal")
+                if (roleClaim == "Normal")
                 {
                     TempData["success"] = $"Hello {nameClaim}";
 
@@ -120,7 +114,7 @@
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            _tokenHandler.ClearToken();
+            _tokenHandler.ClearTokens();
 
             return RedirectToAction("Login", "Account");
         }

@@ -80,16 +80,16 @@ try
         });
         options.AddSecurityRequirement(new OpenApiSecurityRequirement
         {
-        {
-            new OpenApiSecurityScheme
             {
-                Reference= new OpenApiReference
+                new OpenApiSecurityScheme
                 {
-                    Type=ReferenceType.SecurityScheme,
-                    Id=JwtBearerDefaults.AuthenticationScheme
-                }
-            }, new string[]{}
-        }
+                    Reference= new OpenApiReference
+                    {
+                        Type=ReferenceType.SecurityScheme,
+                        Id=JwtBearerDefaults.AuthenticationScheme
+                    }
+                }, new string[]{}
+            }
         });
     });
 

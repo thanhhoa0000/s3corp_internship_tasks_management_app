@@ -10,7 +10,7 @@
             _jwtProperties = jwtOptions.Value;
         }
 
-        public string CreateToken(AppUser user, IEnumerable<Role> roles)
+        public string CreateAccessToken(AppUser user, IEnumerable<Role> roles)
         {          
             var secretKey = _jwtProperties!.Key;
             var key = Encoding.ASCII.GetBytes(secretKey!);
@@ -22,7 +22,7 @@
             {
             new Claim(JwtRegisteredClaimNames.Name, $"{user.FirstName} {user.LastName}"),
             new Claim(JwtRegisteredClaimNames.Email, user.Email!),
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
         };
             claims.AddRange(roles.Select(role
                 => new Claim(ClaimTypes.Role, role.ToString())));

@@ -6,13 +6,13 @@ namespace TaskManagementApp.Frontends.Web.Services
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ITokenProcessor _tokenProcessor;
-        private readonly ILogger<BaseService> _logger;
+        private readonly NLog.ILogger _logger;
 
-        public BaseService(IHttpClientFactory httpClientFactory, ITokenProcessor tokenHandler, ILogger<BaseService> logger)
+        public BaseService(IHttpClientFactory httpClientFactory, ITokenProcessor tokenProcessor)
         {
             _httpClientFactory = httpClientFactory;
-            _tokenProcessor = tokenHandler;
-            _logger = logger;
+            _tokenProcessor = tokenProcessor;
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
         public async Task<Response?> SendAsync(Request request, bool bearer = true)
@@ -20,14 +20,25 @@ namespace TaskManagementApp.Frontends.Web.Services
             try
             {
                 HttpClient client = _httpClientFactory.CreateClient("MyTasksApp");
+                
+                _tokenProcessor.Client = client;
+                _tokenProcessor.Logger = _logger;
+                
                 HttpRequestMessage message = new HttpRequestMessage();
 
                 message.Headers.Add("Accept", "application/json");
 
                 if (bearer)
                 {
-                    var token = _tokenProcessor.GetToken();
-                    message.Headers.Add("Authorization", $"Bearer {token}");
+                    var accessToken = _tokenProcessor.GetAccessToken();
+                    var refreshToken = _tokenProcessor.GetRefreshToken();
+                    var checkedAccessToken = 
+                        await _tokenProcessor.GetValidAccessTokenAsync(accessToken!, refreshToken!);
+
+                    if (!string.IsNullOrEmpty(checkedAccessToken))
+                    {
+                        message.Headers.Add("Authorization", $"Bearer {checkedAccessToken}");
+                    }
                 }
 
                 message.RequestUri = new Uri(request.Url);
@@ -35,7 +46,8 @@ namespace TaskManagementApp.Frontends.Web.Services
                 if (request.Body is not null)
                     message.Content = new StringContent(JsonSerializer.Serialize(request.Body), Encoding.UTF8, "application/json");
 
-                _logger.LogDebug($"\nRequest: {request.Body}");
+                _logger.Debug($"\nRequest: {request.Body}");
+                _logger.Debug($"\nRequest URL: {request.Url}");
 
                 HttpResponseMessage? responseMessage = null;
 
@@ -69,7 +81,7 @@ namespace TaskManagementApp.Frontends.Web.Services
                         return new() { IsSuccess = false, Message = "Internal Server Error" };
                     default:
                         var content = await responseMessage.Content.ReadAsStringAsync();
-                        _logger.LogDebug($"\nContent string: {content}");
+                        _logger.Debug($"\nContent string: {content}");
 
                         var response = new Response();
 
@@ -86,7 +98,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error(s) occured:\n-----{ex}");
+                _logger.Error($"Error(s) occured:\n-----{ex}");
 
                 var response = new Response
                 {

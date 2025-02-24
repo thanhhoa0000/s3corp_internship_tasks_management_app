@@ -21,17 +21,6 @@ try
         .AddHttpClient("MyTasksApp")
         .ConfigurePrimaryHttpMessageHandler(() =>
         {
-            var password = builder.Configuration.GetSection("CertPassword").Value;
-
-            var trustedCerts = new List<X509Certificate2>
-            {
-                new X509Certificate2("/home/app/.aspnet/https/Authen.API.pfx", password),
-                new X509Certificate2("/home/app/.aspnet/https/Tasks.API.pfx", password),
-                new X509Certificate2("/home/app/.aspnet/https/Users.API.pfx", password)
-            };
-
-            var certificatesValidator = new CertificatesValidator(trustedCerts, logger);
-
             return new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
@@ -42,10 +31,8 @@ try
     builder.Services.AddHttpClient<IAccountService, AccountService>();
     builder.Services.AddHttpClient<ITaskService, TaskService>();
     builder.Services.AddHttpClient<IUserService, UserService>();
-
-    ApiUrlProperties.TasksUrl = builder.Configuration["ApiUrls:Tasks"];
-    ApiUrlProperties.UsersUrl = builder.Configuration["ApiUrls:Users"];
-    ApiUrlProperties.AuthUrl = builder.Configuration["ApiUrls:Authentication"];
+    
+    ApiUrlProperties.ApiGatewayUrl = builder.Configuration["GatewayUrl"];
 
     builder.Services.AddScoped<IBaseService, BaseService>();
     builder.Services.AddScoped<ITokenProcessor, TokenProcessor>();

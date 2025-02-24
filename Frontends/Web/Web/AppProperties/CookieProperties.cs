@@ -1,7 +1,8 @@
 ﻿namespace TaskManagementApp.Frontends.Web.AppProperties
 {
-    public class CookieProperties
+    public static class CookieProperties
     {
-        public const string JwtCookie = "JwtToken";
+        public const string AccessTokenCookie = "AccessToken";
+        public const string RefreshTokenCookie = "RefreshToken";
     }
 }

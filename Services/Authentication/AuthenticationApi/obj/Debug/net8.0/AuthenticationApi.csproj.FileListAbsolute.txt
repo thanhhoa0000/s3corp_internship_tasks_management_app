@@ -563,3 +563,4 @@ D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authent
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\AuthenticationApi.pdb
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\AuthenticationApi.genruntimeconfig.cache
 D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\obj\Debug\net8.0\ref\AuthenticationApi.dll
+D:\Internship\Code\Tasks\s3corp_internship_tasks_management_app\Services\Authentication\AuthenticationApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
