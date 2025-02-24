@@ -45,9 +45,9 @@
                 // If credential is valid, generate JWT token
                 IEnumerable<Role> roles = (await userManager.GetRolesAsync(user))
                     .Select(r => (Role)Enum.Parse(typeof(Role), r));
-                var token = tokenProvider.CreateToken(user, roles);
+                var token = tokenProvider.CreateAccessToken(user, roles);
                 
-                logger.LogDebug($"configure: {configuration.GetValue<int>("RefreshTokenExpirationDays")}");
+                logger.LogDebug($"configure: {configuration.GetValue<int>("RefreshTokenLifeTimeInDays")}");
 
                 var refreshToken = new RefreshToken()
                 {
@@ -111,7 +111,7 @@
                 [FromServices] IAuthRepository repository,
                 [FromServices] ITokenProvider tokenProvider,
                 [FromServices] ILogger<AuthEndpoints> logger,
-                IConfiguration configuration,
+                [FromServices] IConfiguration configuration,
                 UserManager<AppUser> userManager)
         {
             try
@@ -133,7 +133,7 @@
                 IEnumerable<Role> roles = (await userManager.GetRolesAsync(refreshToken.AppUser!))
                     .Select(r => (Role)Enum.Parse(typeof(Role), r));
                 
-                string accessToken = tokenProvider.CreateToken(refreshToken.AppUser!, roles);
+                string accessToken = tokenProvider.CreateAccessToken(refreshToken.AppUser!, roles);
                 
                 refreshToken.Token = tokenProvider.GenerateRefreshToken();
 

@@ -15,7 +15,17 @@
             {
                 ApiMethod = ApiMethod.Post,
                 Body = model,
-                Url = ApiUrlProperties.AuthUrl + "/api/v1/auth/login"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/login"
+            }, bearer: false);
+        }
+        
+        public async Task<Response?> LoginWithRefreshTokenAsync(LoginRefreshTokenRequest model)
+        {
+            return await _service.SendAsync(new Request()
+            {
+                ApiMethod = ApiMethod.Post,
+                Body = model,
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/refresh_token_login"
             }, bearer: false);
         }
 
@@ -25,7 +35,7 @@
             {
                 ApiMethod = ApiMethod.Post,
                 Body = model,
-                Url = ApiUrlProperties.AuthUrl + "/api/v1/auth/register"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/register"
             }, bearer: false);
         }
     }

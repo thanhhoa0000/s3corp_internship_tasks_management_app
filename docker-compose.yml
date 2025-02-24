@@ -1,4 +1,15 @@
 services:
+  webgateway:
+    image: ${DOCKER_REGISTRY-}webgateway
+    build:
+      context: .
+      dockerfile: Gateways/Web/WebGateway/Dockerfile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    networks:
+      tasks-management-net:
+  
   web:
     image: ${DOCKER_REGISTRY-}web
     build:
@@ -77,6 +88,8 @@ services:
       tasks-management-net:
     restart: unless-stopped
 
+  
+
 volumes:
   users_data:
   tasks_data:
@@ -84,6 +97,7 @@ volumes:
 networks:
   tasks-management-net:
     driver: bridge
+
 
 
 

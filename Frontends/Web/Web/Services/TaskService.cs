@@ -15,7 +15,7 @@
             {
                 ApiMethod = ApiMethod.Post,
                 Body = taskDto,
-                Url = ApiUrlProperties.TasksUrl + "/api/v1/tasks"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/tasks"
             }, bearer: true);
         }
 
@@ -24,7 +24,7 @@
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Delete,
-                Url = ApiUrlProperties.TasksUrl + $"/api/v1/tasks/{taskId}"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/tasks/{taskId}"
             }, bearer: true);
         }
 
@@ -33,7 +33,7 @@
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Get,
-                Url = ApiUrlProperties.TasksUrl + $"/api/v1/tasks/{taskId}"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/tasks/{taskId}"
             }, bearer: true);
         }
 
@@ -42,7 +42,7 @@
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Get,
-                Url = ApiUrlProperties.TasksUrl + "/api/v1/tasks"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/tasks"
             }, bearer: true);
         }
 
@@ -52,7 +52,7 @@
             {
                 ApiMethod = ApiMethod.Put,
                 Body = taskDto,
-                Url = ApiUrlProperties.TasksUrl + "/api/v1/tasks"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/tasks"
             }, bearer: true);
         }
     }

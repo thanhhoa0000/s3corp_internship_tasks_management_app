@@ -77,6 +77,11 @@
               "version": "[8.2.1, )",
               "versionCentrallyManaged": true
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.12, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.12, )",
@@ -119,11 +124,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.12, )",
-              "versionCentrallyManaged": true
-            },
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
-              "target": "Package",
-              "version": "[1.21.0, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
@@ -173,6 +173,7 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
             "NLog": "5.4.0",
             "NLog.Web.AspNetCore": "5.4.0",
+            "Ocelot": "22.0.1",
             "Swashbuckle.AspNetCore": "6.8.1",
             "System.IdentityModel.Tokens.Jwt": "7.1.2"
           },
@@ -285,6 +286,7 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
             "NLog": "5.4.0",
             "NLog.Web.AspNetCore": "5.4.0",
+            "Ocelot": "22.0.1",
             "Swashbuckle.AspNetCore": "6.8.1",
             "System.IdentityModel.Tokens.Jwt": "7.1.2"
           },

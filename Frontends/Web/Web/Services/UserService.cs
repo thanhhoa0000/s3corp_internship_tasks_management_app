@@ -16,7 +16,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             {
                 ApiMethod = ApiMethod.Post,
                 Body = roleName,
-                Url = ApiUrlProperties.UsersUrl + "/api/v1/roles"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/roles"
             }, bearer: true);
         }
 
@@ -26,7 +26,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             {
                 ApiMethod = ApiMethod.Post,
                 Body = request,
-                Url = ApiUrlProperties.UsersUrl + "/api/v1/users"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/users"
             }, bearer: true);
         }
 
@@ -35,7 +35,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Delete,
-                Url = ApiUrlProperties.UsersUrl + $"/api/v1/roles/{roleId}"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/roles/{roleId}"
             }, bearer: true);
         }
 
@@ -44,7 +44,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Delete,
-                Url = ApiUrlProperties.UsersUrl + $"/api/v1/users/{userId}"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/users/{userId}"
             }, bearer: true);
         }
 
@@ -53,7 +53,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Get,
-                Url = ApiUrlProperties.UsersUrl + $"/api/v1/roles/{roleId}"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/roles/{roleId}"
             }, bearer: true);
         }
 
@@ -62,7 +62,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Get,
-                Url = ApiUrlProperties.UsersUrl + "/api/v1/roles"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/roles"
             }, bearer: true);
         }
 
@@ -71,7 +71,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Get,
-                Url = ApiUrlProperties.UsersUrl + $"/api/v1/users/{userId}"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/users/{userId}"
             }, bearer: true);
         }
 
@@ -80,7 +80,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             return await _service.SendAsync(new Request()
             {
                 ApiMethod = ApiMethod.Get,
-                Url = ApiUrlProperties.UsersUrl + "/api/v1/users"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/users"
             }, bearer: true);
         }
 
@@ -90,7 +90,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             {
                 ApiMethod = ApiMethod.Put,
                 Body = roleDto,
-                Url = ApiUrlProperties.UsersUrl + "/api/v1/roles"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/roles"
             }, bearer: true);
         }
 
@@ -100,7 +100,7 @@ namespace TaskManagementApp.Frontends.Web.Services
             {
                 ApiMethod = ApiMethod.Put,
                 Body = userDto,
-                Url = ApiUrlProperties.UsersUrl + "/api/v1/users"
+                Url = $"{ApiUrlProperties.ApiGatewayUrl}/users"
             }, bearer: true);
         }
     }

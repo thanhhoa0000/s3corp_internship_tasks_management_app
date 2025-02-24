@@ -5,6 +5,6 @@
         [JsonPropertyName("accessToken")]
         public required string AccessToken { get; set; }
         [JsonPropertyName("refreshToken")]
-        public required string RefreshTokenToken { get; set; }
+        public required string RefreshToken { get; set; }
     }
 }
